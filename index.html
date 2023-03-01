@@ -108,6 +108,30 @@
           </li>
 
           <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="stopwatch-outline"></ion-icon>
+            </div>
+      
+            <div class="contact-info">
+              <p class="contact-title">Age in Milliseconds</p>
+              <p id="age"></p>
+            </div>
+          </li>
+        </ul>
+      
+        <script>
+          function ageInMilliseconds() {
+            var birthdate = new Date('May 31, 2001');
+            var now = new Date();
+            var difference = now.getTime() - birthdate.getTime();
+            document.getElementById('age').innerHTML = difference;
+          }
+          setInterval(ageInMilliseconds, 1);
+        </script>
+      </body>
+      </html>
+
+          <li class="contact-item">
 
             <div class="icon-box">
               <ion-icon name="location-outline"></ion-icon>
