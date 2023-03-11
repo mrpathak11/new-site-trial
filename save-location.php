@@ -1,13 +1,12 @@
 <?php
-if (isset($_GET["lat"]) && isset($_GET["lon"])) {
-  $lat = $_GET["lat"];
-  $lon = $_GET["lon"];
-  $filename = "location.txt";
-  $file = fopen($filename, "a");
-  fwrite($file, $lat . "," . $lon . "\n");
-  fclose($file);
-  echo "Location saved successfully.";
+if(isset($_POST['latitude']) && isset($_POST['longitude'])) {
+    $latitude = $_POST['latitude'];
+    $longitude = $_POST['longitude'];
+    $filename = 'location.txt';
+    $data = $latitude . ',' . $longitude . PHP_EOL;
+    file_put_contents($filename, $data, FILE_APPEND);
+    echo 'Location saved';
 } else {
-  echo "Error: Latitude and longitude coordinates not provided.";
+    echo 'Location not provided';
 }
 ?>
