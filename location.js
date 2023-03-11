@@ -1,25 +1,25 @@
-$(document).ready(() => {
-	$('#share-location').click(() => {
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition((position) => {
-				let latitude = position.coords.latitude;
-				let longitude = position.coords.longitude;
-				$.ajax({
-					url: 'save-location.php',
-					method: 'POST',
-					data: {latitude, longitude},
-					success: () => {
-						alert('Location shared successfully!');
-					},
-					error: () => {
-						alert('Error sharing location. Please try again later.');
-					}
-				});
-			}, () => {
-				alert('Error getting location. Please try again later.');
-			});
-		} else {
-			alert('Geolocation is not supported by this browser.');
-		}
+$(document).ready(function() {
+	$("#share-location-btn").on("click", function() {
+	  if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function(position) {
+		  var lat = position.coords.latitude;
+		  var lon = position.coords.longitude;
+		  var url = "save-location.php?lat=" + lat + "&lon=" + lon;
+		  $.ajax({
+			url: url,
+			success: function(data) {
+			  alert(data);
+			},
+			error: function() {
+			  alert("Error saving location. Please try again later.");
+			}
+		  });
+		}, function(error) {
+		  alert("Error sharing location. Please try again later.");
+		});
+	  } else {
+		alert("Geolocation is not supported by this browser.");
+	  }
 	});
-});
+  });
+  
