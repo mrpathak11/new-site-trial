@@ -244,16 +244,18 @@
       </nav>
 
       <script>
-        $(document).ready(function() {
-            var currentPage = sessionStorage.getItem("currentPage");
-            if (currentPage !== null) {
-                $('.navbar-link').removeClass('active');
-                $('button[data-nav-link="' + currentPage + '"]').addClass('active');
-            }
-            $('.navbar-link').on('click', function() {
-                var navLink = $(this).data('nav-link');
-                sessionStorage.setItem("currentPage", navLink);
-            });
+                // get all navbar links
+        const navLinks = document.querySelectorAll('[data-nav-link]');
+
+        // add click event listener to each navbar link
+        navLinks.forEach(link => {
+          link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const sectionId = event.target.textContent.toLowerCase();
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView();
+            history.pushState(null, null, `#${sectionId}`);
+          });
         });
     </script>
 
