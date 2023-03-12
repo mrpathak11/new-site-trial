@@ -244,29 +244,23 @@
       </nav>
 
       <script>
-        // Get the active section from local storage
-        let activeSection = localStorage.getItem('activeSection');
-
-        // Set the active class to the corresponding navbar link
-        document.querySelectorAll('.navbar-link').forEach((link) => {
-          if (link.getAttribute('data-nav-link') === activeSection) {
-            link.classList.add('active');
+        window.onload = function() {
+          var currentPage = localStorage.getItem('currentPage');
+          if (currentPage) {
+            var pageElement = document.querySelector('[data-page="' + currentPage + '"]');
+            if (pageElement) {
+              pageElement.scrollIntoView();
+            }
           }
+        }
+      
+        var navLinks = document.querySelectorAll('[data-nav-link]');
+        for (var i = 0; i < navLinks.length; i++) {
+          navLinks[i].addEventListener('click', function(event) {
+            localStorage.setItem('currentPage', event.target.innerText);
           });
-
-          // Save the active section to local storage when a navbar link is clicked
-          document.querySelectorAll('.navbar-link').forEach((link) => {
-            link.addEventListener('click', () => {
-              localStorage.setItem('activeSection', link.getAttribute('data-nav-link'));
-            });
-          });
-
-          // Remove the active section from local storage when the page is unloaded
-          window.addEventListener('beforeunload', () => {
-            localStorage.removeItem('activeSection');
-          }); 
+        }
       </script>
-
 
 
 
