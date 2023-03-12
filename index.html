@@ -244,20 +244,20 @@
       </nav>
 
       <script>
-                // get all navbar links
+        // get all navbar links
         const navLinks = document.querySelectorAll('[data-nav-link]');
-
+      
         // add click event listener to each navbar link
         navLinks.forEach(link => {
           link.addEventListener('click', (event) => {
             event.preventDefault();
-            const sectionId = event.target.textContent.toLowerCase();
+            const sectionId = event.target.textContent.trim().replace(/\s+/g, '-').replace(/^(.)/, (match, group1) => group1.toLowerCase());
             const section = document.getElementById(sectionId);
             section.scrollIntoView();
             history.pushState(null, null, `#${sectionId}`);
           });
         });
-    </script>
+      </script>
 
 
 
