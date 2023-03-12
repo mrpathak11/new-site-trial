@@ -244,24 +244,18 @@
       </nav>
 
       <script>
-        window.onload = function() {
-          var currentPage = localStorage.getItem('currentPage');
-          if (currentPage) {
-            var pageElement = document.querySelector('[data-page="' + currentPage + '"]');
-            if (pageElement) {
-              pageElement.scrollIntoView();
+        $(document).ready(function() {
+            var currentPage = sessionStorage.getItem("currentPage");
+            if (currentPage !== null) {
+                $('.navbar-link').removeClass('active');
+                $('button[data-nav-link="' + currentPage + '"]').addClass('active');
             }
-          }
-        }
-      
-        var navLinks = document.querySelectorAll('[data-nav-link]');
-        for (var i = 0; i < navLinks.length; i++) {
-          navLinks[i].addEventListener('click', function(event) {
-            localStorage.setItem('currentPage', event.target.innerText);
-          });
-        }
-      </script>
-
+            $('.navbar-link').on('click', function() {
+                var navLink = $(this).data('nav-link');
+                sessionStorage.setItem("currentPage", navLink);
+            });
+        });
+    </script>
 
 
 
