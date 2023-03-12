@@ -243,6 +243,30 @@
 
       </nav>
 
+      <script>
+        // Get the active section from local storage
+        let activeSection = localStorage.getItem('activeSection');
+
+        // Set the active class to the corresponding navbar link
+        document.querySelectorAll('.navbar-link').forEach((link) => {
+          if (link.getAttribute('data-nav-link') === activeSection) {
+            link.classList.add('active');
+          }
+          });
+
+          // Save the active section to local storage when a navbar link is clicked
+          document.querySelectorAll('.navbar-link').forEach((link) => {
+            link.addEventListener('click', () => {
+              localStorage.setItem('activeSection', link.getAttribute('data-nav-link'));
+            });
+          });
+
+          // Remove the active section from local storage when the page is unloaded
+          window.addEventListener('beforeunload', () => {
+            localStorage.removeItem('activeSection');
+          }); 
+      </script>
+
 
 
 
