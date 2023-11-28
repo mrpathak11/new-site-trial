@@ -78,7 +78,7 @@
     <div class="blog-meta">
         <p class="blog-category">AI</p>
         <span class="dot"></span>
-        <time datetime="2023-03-02">Nov 28, 2023</time>
+        <time datetime="2023-11-28">Nov 28, 2023</time>
     </div>
     <p class="blog-text">
         Artificial intelligence (AI) writing is the process of using AI tools to create written content. These tools can perform tasks such as grammar and spell-checking, generating topic ideas, and even offering suggestions for improvements in style and structure. Some examples of AI writing tools are ChatGPT, MS Bing, and Google Bard.
@@ -101,16 +101,14 @@
     <p class="blog-text">
         Therefore, it is important for writers to use AI writing tools responsibly and not rely on them as a substitute for developing their own writing abilities. By balancing the use of AI writing tools with more traditional methods of writing instruction, writers can make the most of these resources to enhance their writing ability and produce high-quality work.
     </p>
+    <div id="readCountContainer">
+        <p id="readCount">Read Count: <span id="count">0</span></p>
+    </div>
 </div>
 
-  <script>
+<script>
     // JavaScript for read count
-    let count = 0;
-
-    // Check if 'count' is stored in local storage
-    if (localStorage.getItem('count')) {
-        count = parseInt(localStorage.getItem('count'));
-    }
+    let count = localStorage.getItem('count') || 0;
 
     // Increment count on each page load
     count++;
