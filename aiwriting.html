@@ -103,8 +103,22 @@
     </p>
 </div>
 
-  </main>
+  <script>
+    // JavaScript for read count
+    let count = 0;
+
+    // Check if 'count' is stored in local storage
+    if (localStorage.getItem('count')) {
+        count = parseInt(localStorage.getItem('count'));
+    }
+
+    // Increment count on each page load
+    count++;
+    localStorage.setItem('count', count);
+
+    // Display the count in the HTML
+    document.getElementById('count').textContent = count;
+</script>
 
 </body>
-
 </html>
