@@ -112,27 +112,38 @@
 
           </li>
 
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
+          <ul class="contact-list">
           
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-              <time datetime="2001-05-31">May 31, 2001</time>
-            </div>
-          </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="calendar-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Birthday</p>
+                <time datetime="2001-05-31">May 31, 2001</time>
+              </div>
+            </li>
           
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="stopwatch-outline"></ion-icon>
-            </div>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="stopwatch-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Age in Milliseconds</p>
+                <time id="age"></time>
+              </div>
+            </li>
           
-            <div class="contact-info">
-              <p class="contact-title">Age in Milliseconds</p>
-              <time id="age"></time>
-            </div>
-          </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Location</p>
+                <time>Kathmandu, Nepal</time>
+              </div>
+            </li>
+          
           </ul>
           
           <script>
@@ -142,9 +153,10 @@
               var difference = now.getTime() - birthdate.getTime();
               document.getElementById('age').textContent = difference;
             }
-            setInterval(ageInMilliseconds, 1000); // update every second
-            ageInMilliseconds(); // run once on load
+            setInterval(ageInMilliseconds, 1000); // update once per second
+            ageInMilliseconds(); // run immediately
           </script>
+
 
           <li class="contact-item">
 
