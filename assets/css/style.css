@@ -232,9 +232,25 @@ img {
 .h3 {
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  margin-bottom: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-bottom: 25px;
+  margin-top: 50px;
+  color: var(--text-color);
+}
+
+.about-text {
+  color: var(--text-light);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 50px;
+  text-align: justify;
+}
+
+/* Services */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  margin-bottom: 40px;
 }
 
 .service-card {
@@ -242,84 +258,37 @@ img {
   padding: 30px;
   border-radius: 12px;
   box-shadow: var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .service-card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-hover);
 }
 
-.icon-box {
+.service-card .icon-box {
   margin-bottom: 20px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-color);
+  border-radius: 50%;
 }
 
-.h4 {
+.service-card .h4 {
   font-size: 1.1rem;
   margin-bottom: 10px;
   font-weight: 600;
 }
 
-.service-content p {
-  font-size: 0.9rem;
-  color: var(--text-light);
-}
-
-/* Testimonials */
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-}
-
-.testimonial-card {
-  background: var(--card-bg);
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  border-left: 4px solid var(--accent-color);
-}
-
-.testimonial-header {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.testimonial-avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.testimonial-text {
-  font-style: italic;
+.service-card p {
   color: var(--text-light);
   font-size: 0.95rem;
-}
-
-/* Clients */
-.clients-list {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.clients-list img {
-  height: 50px;
-  width: auto;
-  filter: grayscale(100%);
-  opacity: 0.7;
-  transition: all 0.3s ease;
-}
-
-.clients-list img:hover {
-  filter: grayscale(0);
-  opacity: 1;
 }
 
 /* Resume */
@@ -642,11 +611,31 @@ textarea.form-input {
   cursor: not-allowed;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .contact-wrapper {
-    grid-template-columns: 1fr;
-  }
+/* Clients List */
+.clients-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-top: 30px;
+  flex-wrap: nowrap;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.clients-list a {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.clients-list img {
+  height: 30px;
+  width: auto;
+  max-width: 80px;
+  object-fit: contain;
+}
 }
 
 @media (max-width: 768px) {
