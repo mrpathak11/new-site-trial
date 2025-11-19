@@ -1,159 +1,167 @@
 'use strict';
 
+// Navigation Active State on Scroll
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-link');
 
-
-// element toggle function
-const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
-
-
-
-// sidebar variables
-const sidebar = document.querySelector("[data-sidebar]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-
-// sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
-
-
-
-// testimonials variables
-const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
-const modalContainer = document.querySelector("[data-modal-container]");
-const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
-const overlay = document.querySelector("[data-overlay]");
-
-// modal variable
-const modalImg = document.querySelector("[data-modal-img]");
-const modalTitle = document.querySelector("[data-modal-title]");
-const modalText = document.querySelector("[data-modal-text]");
-
-// modal toggle function
-const testimonialsModalFunc = function () {
-  modalContainer.classList.toggle("active");
-  overlay.classList.toggle("active");
-}
-
-// add click event to all modal items
-for (let i = 0; i < testimonialsItem.length; i++) {
-
-  testimonialsItem[i].addEventListener("click", function () {
-
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
-
-    testimonialsModalFunc();
-
-  });
-
-}
-
-// add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
-
-
-
-// custom select variables
-const select = document.querySelector("[data-select]");
-const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
-const filterBtn = document.querySelectorAll("[data-filter-btn]");
-
-select.addEventListener("click", function () { elementToggleFunc(this); });
-
-// add event in all select items
-for (let i = 0; i < selectItems.length; i++) {
-  selectItems[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
-    filterFunc(selectedValue);
-
-  });
-}
-
-// filter variables
-const filterItems = document.querySelectorAll("[data-filter-item]");
-
-const filterFunc = function (selectedValue) {
-
-  for (let i = 0; i < filterItems.length; i++) {
-
-    if (selectedValue === "all") {
-      filterItems[i].classList.add("active");
-    } else if (selectedValue === filterItems[i].dataset.category) {
-      filterItems[i].classList.add("active");
-    } else {
-      filterItems[i].classList.remove("active");
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+      current = section.getAttribute('id');
     }
+  });
 
+  navLinks.forEach(li => {
+    li.classList.remove('active');
+    if (li.getAttribute('href').includes(current)) {
+      li.classList.add('active');
+    }
+  });
+});
+
+// Portfolio Filtering
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Remove active class from all buttons
+    filterBtns.forEach(b => b.classList.remove('active'));
+    // Add active class to clicked button
+    btn.classList.add('active');
+
+    const filterValue = btn.getAttribute('data-filter');
+
+    // Reset Show More button for portfolio when filtering
+    const portfolioBtn = document.querySelector('[data-show-more-btn="portfolio"]');
+    const portfolioContainer = document.querySelector('[data-show-more-container="portfolio"]');
+
+    if (portfolioBtn && portfolioContainer) {
+      const allItems = portfolioContainer.querySelectorAll('.project-card');
+
+      if (filterValue === 'all') {
+        portfolioBtn.style.display = 'block';
+        portfolioBtn.textContent = 'Show More';
+        portfolioBtn.setAttribute('data-expanded', 'false');
+        // Re-hide items beyond 3
+        let count = 0;
+        allItems.forEach(item => {
+          item.style.display = 'block'; // Ensure they are visible for layout
+          if (count >= 3) item.classList.add('hidden-item');
+          else item.classList.remove('hidden-item');
+
+          // Reset animations
+          item.style.opacity = '1';
+          item.style.transform = 'scale(1)';
+
+          count++;
+        });
+      } else {
+        portfolioBtn.style.display = 'none';
+        // Show all items in this category
+        allItems.forEach(item => {
+          if (item.dataset.category === filterValue) {
+            item.classList.remove('hidden-item');
+            item.style.display = 'block';
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'scale(1)';
+            }, 200);
+          } else {
+            item.classList.add('hidden-item');
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.8)';
+            setTimeout(() => {
+              item.style.display = 'none';
+            }, 300);
+          }
+        });
+      }
+    } else {
+      // Fallback if no show more logic (shouldn't happen based on new HTML)
+      projectCards.forEach(card => {
+        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+          card.style.display = 'block';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+          }, 200);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.8)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 300);
+        }
+      });
+    }
+  });
+});
+
+// Show More Functionality
+const showMoreContainers = document.querySelectorAll('[data-show-more-container]');
+
+showMoreContainers.forEach(container => {
+  const category = container.dataset.showMoreContainer;
+  const btn = document.querySelector(`[data-show-more-btn="${category}"]`);
+  const items = container.children; // This might need to be more specific if there are other elements
+  const initialShow = 3;
+
+  // Helper to get actual item elements (exclude non-card elements if any)
+  const itemElements = Array.from(items).filter(el => el.classList.contains('project-card') || el.classList.contains('blog-card'));
+
+  if (itemElements.length <= initialShow) {
+    if (btn) btn.style.display = 'none';
+    return;
   }
 
-}
+  // Hide items beyond the initial count
+  for (let i = initialShow; i < itemElements.length; i++) {
+    itemElements[i].classList.add('hidden-item');
+  }
 
-// add event in all filter button items for large screen
-let lastClickedBtn = filterBtn[0];
+  if (btn) {
+    btn.addEventListener('click', function () {
+      const isExpanded = this.getAttribute('data-expanded') === 'true';
 
-for (let i = 0; i < filterBtn.length; i++) {
+      if (isExpanded) {
+        // Collapse
+        for (let i = initialShow; i < itemElements.length; i++) {
+          itemElements[i].classList.add('hidden-item');
+        }
+        this.textContent = 'Show More';
+        this.setAttribute('data-expanded', 'false');
 
-  filterBtn[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    filterFunc(selectedValue);
-
-    lastClickedBtn.classList.remove("active");
-    this.classList.add("active");
-    lastClickedBtn = this;
-
-  });
-
-}
-
-
-
-// contact form variables
-const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
-
-// add event to all form input field
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
-
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
-    }
-
-  });
-}
-
-
-
-// page navigation variables
-const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
-
-// add event to all nav link
-for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener("click", function () {
-
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
+        // Scroll back to top of container
+        container.scrollIntoView({ behavior: 'smooth' });
       } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
+        // Expand
+        for (let i = initialShow; i < itemElements.length; i++) {
+          itemElements[i].classList.remove('hidden-item');
+        }
+        this.textContent = 'Show Less';
+        this.setAttribute('data-expanded', 'true');
       }
-    }
+    });
+  }
+});
 
+// Contact Form Validation
+const form = document.querySelector('[data-form]');
+const formInputs = document.querySelectorAll('[data-form-input]');
+const formBtn = document.querySelector('[data-form-btn]');
+
+if (form) {
+  formInputs.forEach(input => {
+    input.addEventListener('input', () => {
+      if (form.checkValidity()) {
+        formBtn.removeAttribute('disabled');
+      } else {
+        formBtn.setAttribute('disabled', '');
+      }
+    });
   });
 }

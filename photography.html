@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography | Suman Pathak</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <style>
+        /* Photography specific styles */
+        .photo-grid {
+            column-count: 3;
+            column-gap: 15px;
+        }
+
+        .photo-item {
+            margin-bottom: 15px;
+            break-inside: avoid;
+        }
+
+        .photo-item img {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item img:hover {
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 768px) {
+            .photo-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 580px) {
+            .photo-grid {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- Sidebar / Header -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="avatar-container">
+                    <a href="index.html"><img src="./assets/images/my-avatar.png" alt="Suman Pathak" class="avatar"></a>
+                </div>
+                <h1 class="name"><a href="index.html">Suman Pathak</a></h1>
+                <p class="title">Mechanical Engineer<br>Energy Enthusiast</p>
+            </div>
+
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
+                    <li><a href="index.html#resume" class="nav-link">Resume</a></li>
+                    <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="index.html#blog" class="nav-link">Blog</a></li>
+                    <li><a href="photography.html" class="nav-link active">Photography</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <ul class="social-list">
+                    <li><a href="https://www.linkedin.com/in/sumanpathak1" target="_blank" class="social-link"><ion-icon
+                                name="logo-linkedin"></ion-icon></a></li>
+                    <li><a href="https://www.researchgate.net/profile/Suman-Pathak" target="_blank"
+                            class="social-link"><ion-icon name="book-outline"></ion-icon></a></li>
+                    <li><a href="https://www.facebook.com/mrpathak11/" target="_blank" class="social-link"><ion-icon
+                                name="logo-facebook"></ion-icon></a></li>
+                    <li><a href="https://www.instagram.com/mrpathak10_/" target="_blank" class="social-link"><ion-icon
+                                name="logo-instagram"></ion-icon></a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="section active">
+                <header class="section-header">
+                    <h2 class="h2">Photography</h2>
+                </header>
+
+                <div class="section-content">
+                    <p style="margin-bottom: 20px; color: var(--text-light);">A collection of moments captured through
+                        my lens.</p>
+
+                    <div class="photo-grid">
+                        <!-- Placeholder images - user can replace with actual photos -->
+                        <div class="photo-item"><img src="https://source.unsplash.com/random/800x600?nature"
+                                alt="Photography"></div>
+                        <div class="photo-item"><img src="https://source.unsplash.com/random/600x800?mountain"
+                                alt="Photography"></div>
+                        <div class="photo-item"><img src="https://source.unsplash.com/random/800x800?travel"
+                                alt="Photography"></div>
+                        <div class="photo-item"><img src="https://source.unsplash.com/random/600x600?city"
+                                alt="Photography"></div>
+                        <div class="photo-item"><img src="https://source.unsplash.com/random/800x1000?architecture"
+                                alt="Photography"></div>
+                        <div class="photo-item"><img src="https://source.unsplash.com/random/800x500?landscape"
+                                alt="Photography"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
