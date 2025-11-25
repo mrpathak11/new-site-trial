@@ -28,32 +28,63 @@
         /* Photography specific styles */
         .photo-grid {
             column-count: 3;
-            column-gap: 15px;
+            column-gap: 24px;
         }
 
         .photo-item {
-            margin-bottom: 15px;
+            margin-bottom: 24px;
             break-inside: avoid;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
         }
 
         .photo-item img {
             width: 100%;
-            border-radius: 12px;
             display: block;
-            transition: transform 0.3s ease;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        .photo-item img:hover {
-            transform: scale(1.02);
+        .photo-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            z-index: 1;
         }
 
-        @media (max-width: 768px) {
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Overlay for caption or details if needed in future */
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .photo-item:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        @media (max-width: 900px) {
             .photo-grid {
                 column-count: 2;
+                column-gap: 20px;
+            }
+
+            .photo-item {
+                margin-bottom: 20px;
             }
         }
 
-        @media (max-width: 580px) {
+        @media (max-width: 600px) {
             .photo-grid {
                 column-count: 1;
             }
@@ -112,19 +143,90 @@
                         my lens.</p>
 
                     <div class="photo-grid">
-                        <!-- Placeholder images - user can replace with actual photos -->
-                        <div class="photo-item"><img src="https://source.unsplash.com/random/800x600?nature"
-                                alt="Photography"></div>
-                        <div class="photo-item"><img src="https://source.unsplash.com/random/600x800?mountain"
-                                alt="Photography"></div>
-                        <div class="photo-item"><img src="https://source.unsplash.com/random/800x800?travel"
-                                alt="Photography"></div>
-                        <div class="photo-item"><img src="https://source.unsplash.com/random/600x600?city"
-                                alt="Photography"></div>
-                        <div class="photo-item"><img src="https://source.unsplash.com/random/800x1000?architecture"
-                                alt="Photography"></div>
-                        <div class="photo-item"><img src="https://source.unsplash.com/random/800x500?landscape"
-                                alt="Photography"></div>
+                        <div class="photo-item"><img src="./Capture/1000001099.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000001864.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000004324.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000004346.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000005209.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000006850.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000009141.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000010194.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000011803.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000012181.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000012196.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000012198.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000015789.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000025042.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000025174.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000025277.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000025912.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000025916.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000025925.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000027066.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000027278.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000027507.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000027641.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000027774.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000027918.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000028054.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000028055.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000028060.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000028069.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000028070.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000028349.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000028350.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000028513.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000028928.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000028942.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000028998.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000029055.heic" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000029081.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000029085.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000029160.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000029161.jpg" alt="Photography" loading="lazy">
+                        </div>
+                        <div class="photo-item"><img src="./Capture/1000029162.jpg" alt="Photography" loading="lazy">
+                        </div>
                     </div>
                 </div>
             </section>
