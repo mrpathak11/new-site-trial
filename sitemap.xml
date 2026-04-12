@@ -4,18 +4,26 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-
+<!-- Homepage -->
 <url>
   <loc>https://sumanpathak.com.np/</loc>
-  <lastmod>2025-04-11T00:15:01+00:00</lastmod>
+  <lastmod>2026-04-12T00:00:00+00:00</lastmod>
   <priority>1.00</priority>
 </url>
+
+<!-- Resume -->
 <url>
   <loc>https://sumanpathak.com.np/assets/images/my_resume.pdf</loc>
   <lastmod>2025-04-11T00:15:01+00:00</lastmod>
   <priority>0.80</priority>
+</url>
+
+<!-- Blog Articles -->
+<url>
+  <loc>https://sumanpathak.com.np/hydropower-illusion.html</loc>
+  <lastmod>2026-04-12T00:00:00+00:00</lastmod>
+  <priority>0.90</priority>
 </url>
 <url>
   <loc>https://sumanpathak.com.np/earthquake.html</loc>
@@ -43,5 +51,16 @@
   <priority>0.80</priority>
 </url>
 
+<!-- Other Pages -->
+<url>
+  <loc>https://sumanpathak.com.np/photography.html</loc>
+  <lastmod>2025-04-11T00:15:01+00:00</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://sumanpathak.com.np/la.html</loc>
+  <lastmod>2025-04-11T00:15:01+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
 
 </urlset>
