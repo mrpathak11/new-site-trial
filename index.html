@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
   <meta charset="UTF-8">
@@ -29,28 +29,38 @@
 
 <body>
 
+  <!-- Floating particles -->
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
   <!-- ===== TOP NAVIGATION ===== -->
   <nav class="top-nav" id="topNav">
     <div class="nav-inner">
       <a href="#about" class="nav-brand">
-        <img src="./assets/images/my-avatar.png" alt="Suman Pathak" class="nav-brand-avatar">
+        <div class="nav-brand-icon">SP</div>
         <span class="nav-brand-name">Suman Pathak</span>
       </a>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#about" class="nav-link active">About</a></li>
-        <li><a href="#resume" class="nav-link">Resume</a></li>
-        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-        <li><a href="#blog" class="nav-link">Blog</a></li>
-        <li><a href="photography.html" class="nav-link">Photography</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
+      <div class="nav-actions">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about" class="nav-link active">About</a></li>
+          <li><a href="#resume" class="nav-link">Resume</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+          <li><a href="#blog" class="nav-link">Blog</a></li>
+          <li><a href="photography.html" class="nav-link">Photography</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
 
-      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme">
+          <ion-icon name="sunny-outline" class="icon-sun"></ion-icon>
+          <ion-icon name="moon-outline" class="icon-moon"></ion-icon>
+        </button>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
 
     <!-- Mobile Drawer -->
@@ -75,7 +85,7 @@
         </div>
         <div class="hero-text">
           <h1 class="hero-name">Suman Pathak</h1>
-          <p class="hero-title">Mechanical Engineer · Energy Enthusiast</p>
+          <p class="hero-title typing-cursor">Mechanical Engineer · Energy Enthusiast</p>
           <p class="about-text">
             Mechanical Engineer pursuing a Master's in Sustainable Systems Engineering in Freiburg, Germany. Passionate
             about sustainable energy systems, HVAC, and design. Currently a student assistant focusing on district
@@ -125,7 +135,7 @@
 
       <div class="resume-columns">
         <!-- Education -->
-        <div class="timeline reveal">
+        <div class="timeline reveal-left">
           <div class="timeline-header">
             <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
             <h3 class="h3">Education</h3>
@@ -143,7 +153,7 @@
         </div>
 
         <!-- Experience -->
-        <div class="timeline reveal">
+        <div class="timeline reveal-right">
           <div class="timeline-header">
             <div class="icon-box"><ion-icon name="briefcase-outline"></ion-icon></div>
             <h3 class="h3">Experience</h3>
@@ -222,7 +232,7 @@
 
         <div class="project-grid" data-show-more-container="portfolio">
           <!-- Projects -->
-          <div class="project-card reveal" data-category="projects">
+          <div class="project-card reveal reveal-delay-1" data-category="projects">
             <a href="https://www.researchgate.net/project/Study-of-Earthquake-Resistant-Building-For-Passive-and-Active-Thermal-Retrofitting-Strategy-A-Case-Study"
               target="_blank">
               <figure class="project-img">
@@ -233,7 +243,7 @@
               <p class="project-category">Projects</p>
             </a>
           </div>
-          <div class="project-card reveal" data-category="projects">
+          <div class="project-card reveal reveal-delay-2" data-category="projects">
             <a href="https://www.researchgate.net/publication/365780080_DESIGN_AND_ANALYSIS_OF_LOW_TEMPERATURE_REFRIGERATION_SYSTEM"
               target="_blank">
               <figure class="project-img">
@@ -244,7 +254,7 @@
               <p class="project-category">Projects</p>
             </a>
           </div>
-          <div class="project-card reveal" data-category="projects">
+          <div class="project-card reveal reveal-delay-3" data-category="projects">
             <a href="https://www.researchgate.net/publication/349477063_A_DETAILED_REPORT_ON_DESIGN_AND_ANALYSIS_OF_SAND_SIEVING_MACHINE"
               target="_blank">
               <figure class="project-img">
@@ -366,29 +376,26 @@
         <h2 class="h2">Blog</h2>
       </header>
 
-      <!-- Featured Blog -->
-      <div class="blog-featured reveal">
-        <div class="blog-card">
-          <a href="hydropower-illusion.html">
-            <figure class="blog-banner">
-              <img src="./assets/images/hydropower-hero.jpg" alt="Hydropower Illusion Nepal" loading="lazy">
-            </figure>
-            <div class="blog-content">
-              <div class="blog-meta">
-                <span class="blog-category">Energy Policy</span>
-                <span class="dot"></span>
-                <time datetime="2025-04-10">Apr 10, 2025</time>
-              </div>
-              <h3 class="blog-title">The Hydropower Illusion: Nepal's Energy Sovereignty</h3>
-              <p class="blog-text">Click to read full article</p>
-            </div>
-          </a>
-        </div>
-      </div>
-
       <div class="section-content">
         <div class="blog-grid" data-show-more-container="blog">
-          <div class="blog-card reveal">
+          <!-- All blog cards rendered identically -->
+          <div class="blog-card reveal reveal-delay-1">
+            <a href="hydropower-illusion.html">
+              <figure class="blog-banner">
+                <img src="./assets/images/hydropower-hero.jpg" alt="Hydropower Illusion Nepal" loading="lazy">
+              </figure>
+              <div class="blog-content">
+                <div class="blog-meta">
+                  <span class="blog-category">Energy Policy</span>
+                  <span class="dot"></span>
+                  <time datetime="2025-04-10">Apr 10, 2025</time>
+                </div>
+                <h3 class="blog-title">The Hydropower Illusion: Nepal's Energy Sovereignty</h3>
+                <p class="blog-text">Click to read full article</p>
+              </div>
+            </a>
+          </div>
+          <div class="blog-card reveal reveal-delay-2">
             <a href="earthquake.html">
               <figure class="blog-banner">
                 <img src="./assets/images/earthquake2.png" alt="Earthquake Preparedness" loading="lazy">
@@ -404,7 +411,7 @@
               </div>
             </a>
           </div>
-          <div class="blog-card reveal">
+          <div class="blog-card reveal reveal-delay-3">
             <a href="revolutionizing-building-energy-efficiency.html">
               <figure class="blog-banner">
                 <img src="./assets/images/futurehome.png" alt="Building Energy Efficiency" loading="lazy">
@@ -476,7 +483,7 @@
     <div class="section-divider"><hr></div>
 
     <!-- ——— WORKED WITH ——— -->
-    <section class="section clients-section reveal">
+    <section class="section clients-section reveal-scale">
       <h3 class="h3" style="margin-top:0; text-align:center;">Worked With</h3>
       <div class="clients-list">
         <a href="https://www.facebook.com/officialroutineofeducation" target="_blank"><img
@@ -535,14 +542,14 @@
         <h2 class="h2">Contact</h2>
       </header>
 
-      <div class="contact-wrapper reveal">
-        <div class="mapbox">
+      <div class="contact-wrapper">
+        <div class="mapbox reveal-left">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d85072.55986628626!2d7.761743890332635!3d47.99609006630869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47911b26560bd665%3A0x41f6bb7a5df57b0!2sFreiburg%20im%20Breisgau%2C%20Germany!5e0!3m2!1sen!2snp!4v1646049125097!5m2!1sen!2snp"
             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
-        <form action="https://formspree.io/f/xyylbzly" method="POST" class="contact-form" data-form>
+        <form action="https://formspree.io/f/xyylbzly" method="POST" class="contact-form reveal-right" data-form>
           <h3 class="h3">Contact Form</h3>
           <div class="input-group">
             <input type="text" name="fullname" class="form-input" placeholder="Full Name" required data-form-input>

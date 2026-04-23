@@ -3,7 +3,7 @@
 // ============================
 // SCROLL REVEAL (IntersectionObserver)
 // ============================
-const revealElements = document.querySelectorAll('.reveal');
+const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
 
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -13,8 +13,8 @@ const revealObserver = new IntersectionObserver((entries) => {
     }
   });
 }, {
-  threshold: 0.1,
-  rootMargin: '0px 0px -40px 0px'
+  threshold: 0.08,
+  rootMargin: '0px 0px -50px 0px'
 });
 
 revealElements.forEach(el => revealObserver.observe(el));
@@ -28,8 +28,11 @@ const skillObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const bar = entry.target;
-      bar.style.width = bar.getAttribute('data-width');
-      bar.classList.add('animate');
+      // Small delay for visual effect
+      setTimeout(() => {
+        bar.style.width = bar.getAttribute('data-width');
+        bar.classList.add('animate');
+      }, 200);
       skillObserver.unobserve(bar);
     }
   });
@@ -38,6 +41,65 @@ const skillObserver = new IntersectionObserver((entries) => {
 });
 
 skillBars.forEach(bar => skillObserver.observe(bar));
+
+// ============================
+// FLOATING PARTICLES
+// ============================
+const particlesContainer = document.getElementById('particles');
+
+function createParticles() {
+  if (!particlesContainer) return;
+  const count = window.innerWidth < 768 ? 10 : 20;
+
+  for (let i = 0; i < count; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.width = (Math.random() * 3 + 1) + 'px';
+    particle.style.height = particle.style.width;
+    particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+    particle.style.animationDelay = (Math.random() * 10) + 's';
+    particle.style.opacity = '0';
+    particlesContainer.appendChild(particle);
+  }
+}
+createParticles();
+
+// ============================
+// THEME TOGGLE
+// ============================
+const themeToggle = document.getElementById('themeToggle');
+const htmlEl = document.documentElement;
+
+// Check saved preference or system preference
+function getPreferredTheme() {
+  const saved = localStorage.getItem('sp-theme');
+  if (saved) return saved;
+  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+}
+
+function setTheme(theme) {
+  htmlEl.setAttribute('data-theme', theme);
+  localStorage.setItem('sp-theme', theme);
+}
+
+// Initialize theme
+setTheme(getPreferredTheme());
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const current = htmlEl.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    setTheme(next);
+  });
+}
+
+// Listen for system preference changes
+window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+  if (!localStorage.getItem('sp-theme')) {
+    setTheme(e.matches ? 'light' : 'dark');
+  }
+});
 
 // ============================
 // NAVBAR — Scroll shadow + active state
@@ -58,7 +120,7 @@ function updateNav() {
   // Active section highlight
   let current = '';
   sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120;
+    const sectionTop = section.offsetTop - 140;
     const sectionHeight = section.clientHeight;
     if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
       current = section.getAttribute('id');
@@ -129,7 +191,6 @@ if (hamburger && mobileDrawer) {
 // PORTFOLIO FILTERING
 // ============================
 const filterBtns = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -152,30 +213,38 @@ filterBtns.forEach(btn => {
         let count = 0;
         allItems.forEach(item => {
           item.style.display = '';
+          item.style.opacity = '1';
+          item.style.transform = '';
           if (count >= 3) {
             item.classList.add('hidden-item');
           } else {
             item.classList.remove('hidden-item');
           }
-          item.style.opacity = '1';
-          item.style.transform = '';
           count++;
         });
       } else {
         portfolioBtn.style.display = 'none';
+        let visibleIndex = 0;
         allItems.forEach(item => {
           if (item.dataset.category === filterValue) {
             item.classList.remove('hidden-item');
             item.style.display = '';
-            requestAnimationFrame(() => {
+            // Stagger animation
+            const delay = visibleIndex * 80;
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              item.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
               item.style.opacity = '1';
               item.style.transform = '';
-            });
+            }, delay);
+            visibleIndex++;
           } else {
             item.style.opacity = '0';
             item.style.transform = 'scale(0.9)';
             setTimeout(() => {
               item.classList.add('hidden-item');
+              item.style.transition = '';
             }, 300);
           }
         });
@@ -220,12 +289,22 @@ showMoreContainers.forEach(container => {
         container.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
         for (let i = initialShow; i < itemElements.length; i++) {
-          itemElements[i].classList.remove('hidden-item');
-          // Trigger reveal animation for newly shown items
-          if (itemElements[i].classList.contains('reveal') && !itemElements[i].classList.contains('revealed')) {
-            requestAnimationFrame(() => {
-              itemElements[i].classList.add('revealed');
-            });
+          const item = itemElements[i];
+          item.classList.remove('hidden-item');
+
+          // Stagger entrance animation
+          const delay = (i - initialShow) * 100;
+          item.style.opacity = '0';
+          item.style.transform = 'translateY(30px)';
+          setTimeout(() => {
+            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            item.style.opacity = '1';
+            item.style.transform = '';
+          }, delay);
+
+          // Trigger reveal if needed
+          if (item.classList.contains('reveal') && !item.classList.contains('revealed')) {
+            item.classList.add('revealed');
           }
         }
         this.textContent = 'Show Less';
@@ -253,3 +332,16 @@ if (form) {
     });
   });
 }
+
+// ============================
+// SMOOTH SCROLL for nav links
+// ============================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
