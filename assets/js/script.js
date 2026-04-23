@@ -1,41 +1,143 @@
 'use strict';
 
-// Navigation Active State on Scroll
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-link');
+// ============================
+// SCROLL REVEAL (IntersectionObserver)
+// ============================
+const revealElements = document.querySelectorAll('.reveal');
 
-window.addEventListener('scroll', () => {
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -40px 0px'
+});
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// ============================
+// SKILL BAR ANIMATION
+// ============================
+const skillBars = document.querySelectorAll('.skill-progress[data-width]');
+
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const bar = entry.target;
+      bar.style.width = bar.getAttribute('data-width');
+      bar.classList.add('animate');
+      skillObserver.unobserve(bar);
+    }
+  });
+}, {
+  threshold: 0.3
+});
+
+skillBars.forEach(bar => skillObserver.observe(bar));
+
+// ============================
+// NAVBAR — Scroll shadow + active state
+// ============================
+const topNav = document.getElementById('topNav');
+const sections = document.querySelectorAll('section[id]');
+const navLinksDesktop = document.querySelectorAll('.nav-links .nav-link');
+const navLinksDrawer = document.querySelectorAll('.mobile-drawer .nav-link');
+
+function updateNav() {
+  // Add shadow on scroll
+  if (window.scrollY > 20) {
+    topNav.classList.add('scrolled');
+  } else {
+    topNav.classList.remove('scrolled');
+  }
+
+  // Active section highlight
   let current = '';
   sections.forEach(section => {
-    const sectionTop = section.offsetTop;
+    const sectionTop = section.offsetTop - 120;
     const sectionHeight = section.clientHeight;
-    if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
       current = section.getAttribute('id');
     }
   });
 
-  navLinks.forEach(li => {
-    li.classList.remove('active');
-    if (li.getAttribute('href').includes(current)) {
-      li.classList.add('active');
-    }
-  });
+  const updateLinks = (links) => {
+    links.forEach(link => {
+      link.classList.remove('active');
+      const href = link.getAttribute('href');
+      if (href && href.includes('#') && href.includes(current) && current !== '') {
+        link.classList.add('active');
+      }
+    });
+  };
+
+  updateLinks(navLinksDesktop);
+  updateLinks(navLinksDrawer);
+}
+
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      updateNav();
+      ticking = false;
+    });
+    ticking = true;
+  }
 });
 
-// Portfolio Filtering
+// Initial call
+updateNav();
+
+// ============================
+// HAMBURGER MENU
+// ============================
+const hamburger = document.getElementById('hamburger');
+const mobileDrawer = document.getElementById('mobileDrawer');
+
+if (hamburger && mobileDrawer) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileDrawer.classList.toggle('open');
+    document.body.style.overflow = mobileDrawer.classList.contains('open') ? 'hidden' : '';
+  });
+
+  // Close drawer when a link is clicked
+  mobileDrawer.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileDrawer.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) {
+      hamburger.classList.remove('open');
+      mobileDrawer.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+}
+
+// ============================
+// PORTFOLIO FILTERING
+// ============================
 const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    // Remove active class from all buttons
     filterBtns.forEach(b => b.classList.remove('active'));
-    // Add active class to clicked button
     btn.classList.add('active');
 
     const filterValue = btn.getAttribute('data-filter');
 
-    // Reset Show More button for portfolio when filtering
     const portfolioBtn = document.querySelector('[data-show-more-btn="portfolio"]');
     const portfolioContainer = document.querySelector('[data-show-more-container="portfolio"]');
 
@@ -46,79 +148,61 @@ filterBtns.forEach(btn => {
         portfolioBtn.style.display = 'block';
         portfolioBtn.textContent = 'Show More';
         portfolioBtn.setAttribute('data-expanded', 'false');
-        // Re-hide items beyond 3
+
         let count = 0;
         allItems.forEach(item => {
-          item.style.display = 'block'; // Ensure they are visible for layout
-          if (count >= 3) item.classList.add('hidden-item');
-          else item.classList.remove('hidden-item');
-
-          // Reset animations
+          item.style.display = '';
+          if (count >= 3) {
+            item.classList.add('hidden-item');
+          } else {
+            item.classList.remove('hidden-item');
+          }
           item.style.opacity = '1';
-          item.style.transform = 'scale(1)';
-
+          item.style.transform = '';
           count++;
         });
       } else {
         portfolioBtn.style.display = 'none';
-        // Show all items in this category
         allItems.forEach(item => {
           if (item.dataset.category === filterValue) {
             item.classList.remove('hidden-item');
-            item.style.display = 'block';
-            setTimeout(() => {
+            item.style.display = '';
+            requestAnimationFrame(() => {
               item.style.opacity = '1';
-              item.style.transform = 'scale(1)';
-            }, 200);
+              item.style.transform = '';
+            });
           } else {
-            item.classList.add('hidden-item');
             item.style.opacity = '0';
-            item.style.transform = 'scale(0.8)';
+            item.style.transform = 'scale(0.9)';
             setTimeout(() => {
-              item.style.display = 'none';
+              item.classList.add('hidden-item');
             }, 300);
           }
         });
       }
-    } else {
-      // Fallback if no show more logic (shouldn't happen based on new HTML)
-      projectCards.forEach(card => {
-        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-          card.style.display = 'block';
-          setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'scale(1)';
-          }, 200);
-        } else {
-          card.style.opacity = '0';
-          card.style.transform = 'scale(0.8)';
-          setTimeout(() => {
-            card.style.display = 'none';
-          }, 300);
-        }
-      });
     }
   });
 });
 
-// Show More Functionality
+// ============================
+// SHOW MORE / SHOW LESS
+// ============================
 const showMoreContainers = document.querySelectorAll('[data-show-more-container]');
 
 showMoreContainers.forEach(container => {
   const category = container.dataset.showMoreContainer;
   const btn = document.querySelector(`[data-show-more-btn="${category}"]`);
-  const items = container.children; // This might need to be more specific if there are other elements
+  const itemElements = Array.from(container.children).filter(
+    el => el.classList.contains('project-card') || el.classList.contains('blog-card')
+  );
   const initialShow = 3;
-
-  // Helper to get actual item elements (exclude non-card elements if any)
-  const itemElements = Array.from(items).filter(el => el.classList.contains('project-card') || el.classList.contains('blog-card'));
 
   if (itemElements.length <= initialShow) {
     if (btn) btn.style.display = 'none';
     return;
   }
 
-  // Hide items beyond the initial count
+  // Hide items beyond initial count
   for (let i = initialShow; i < itemElements.length; i++) {
     itemElements[i].classList.add('hidden-item');
   }
@@ -128,19 +212,21 @@ showMoreContainers.forEach(container => {
       const isExpanded = this.getAttribute('data-expanded') === 'true';
 
       if (isExpanded) {
-        // Collapse
         for (let i = initialShow; i < itemElements.length; i++) {
           itemElements[i].classList.add('hidden-item');
         }
         this.textContent = 'Show More';
         this.setAttribute('data-expanded', 'false');
-
-        // Scroll back to top of container
-        container.scrollIntoView({ behavior: 'smooth' });
+        container.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
-        // Expand
         for (let i = initialShow; i < itemElements.length; i++) {
           itemElements[i].classList.remove('hidden-item');
+          // Trigger reveal animation for newly shown items
+          if (itemElements[i].classList.contains('reveal') && !itemElements[i].classList.contains('revealed')) {
+            requestAnimationFrame(() => {
+              itemElements[i].classList.add('revealed');
+            });
+          }
         }
         this.textContent = 'Show Less';
         this.setAttribute('data-expanded', 'true');
@@ -149,7 +235,9 @@ showMoreContainers.forEach(container => {
   }
 });
 
-// Contact Form Validation
+// ============================
+// CONTACT FORM VALIDATION
+// ============================
 const form = document.querySelector('[data-form]');
 const formInputs = document.querySelectorAll('[data-form-input]');
 const formBtn = document.querySelector('[data-form-btn]');
