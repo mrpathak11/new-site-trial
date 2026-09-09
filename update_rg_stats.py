@@ -1,6 +1,6 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
-update_rg_stats.py — Scrape ResearchGate stats and update the website HTML files.
+update_rg_stats.py â€” Scrape ResearchGate stats and update the website HTML files.
 
 Usage:
     python update_rg_stats.py
@@ -26,7 +26,7 @@ except ImportError:
     print("Missing dependencies. Run:  pip install requests beautifulsoup4")
     sys.exit(1)
 
-# ── Config ──────────────────────────────────────────────────────────────────
+# â”€â”€ Config â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 RG_STATS_URL = "https://www.researchgate.net/profile/Suman-Pathak/stats"
 RG_PROFILE_URL = "https://www.researchgate.net/profile/Suman-Pathak"
 
@@ -47,12 +47,12 @@ HEADERS = {
     "Accept-Language": "en-US,en;q=0.9",
 }
 
-# ── Scraper ──────────────────────────────────────────────────────────────────
+# â”€â”€ Scraper â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def fetch_stats() -> dict:
     """
     Attempt to scrape ResearchGate stats page.
     ResearchGate is heavily JavaScript-rendered, so this uses a simple
-    heuristic approach — it may need updating if RG changes their markup.
+    heuristic approach â€” it may need updating if RG changes their markup.
     Returns a dict with keys: reads, ris, recommendations (all strings).
     """
     print(f"Fetching: {RG_STATS_URL}")
@@ -60,7 +60,7 @@ def fetch_stats() -> dict:
         resp = requests.get(RG_STATS_URL, headers=HEADERS, timeout=20)
         resp.raise_for_status()
     except requests.RequestException as e:
-        print(f"  ✗ Request failed: {e}")
+        print(f"  FAIL: Request failed: {e}")
         return {}
 
     soup = BeautifulSoup(resp.text, "html.parser")
@@ -68,7 +68,7 @@ def fetch_stats() -> dict:
 
     stats = {}
 
-    # ── Reads ──────────────────────────────────────────────────────────────
+    # â”€â”€ Reads â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     # Look for patterns like "42,500 reads" or "42.5k reads"
     reads_match = re.search(
         r"([\d,\.]+)\s*k?\s*(?:total\s*)?reads?",
@@ -84,7 +84,7 @@ def fetch_stats() -> dict:
         if val:
             stats["reads"] = f"{val:,}+"
 
-    # ── Research Interest Score ─────────────────────────────────────────────
+    # â”€â”€ Research Interest Score â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     ris_match = re.search(
         r"[Rr]esearch\s+[Ii]nterest\s+[Ss]core[:\s]*([\d\.]+)",
         text
@@ -95,7 +95,7 @@ def fetch_stats() -> dict:
     if ris_match:
         stats["ris"] = ris_match.group(1)
 
-    # ── Recommendations ─────────────────────────────────────────────────────
+    # â”€â”€ Recommendations â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     recs_match = re.search(
         r"(\d+)\s+[Rr]ecommendations?",
         text
@@ -106,7 +106,7 @@ def fetch_stats() -> dict:
     return stats
 
 
-# ── HTML Patcher ─────────────────────────────────────────────────────────────
+# â”€â”€ HTML Patcher â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def patch_file(filepath: Path, stats: dict) -> bool:
     """
     Update the three stat values in an HTML file using data-rg-stat attributes.
@@ -114,7 +114,7 @@ def patch_file(filepath: Path, stats: dict) -> bool:
         <span id="rg-reads" data-rg-stat="reads"><strong>40,860+</strong></span>
     """
     if not filepath.exists():
-        print(f"  ⚠ File not found: {filepath}")
+        print(f"  âš  File not found: {filepath}")
         return False
 
     html = filepath.read_text(encoding="utf-8")
@@ -128,7 +128,7 @@ def patch_file(filepath: Path, stats: dict) -> bool:
             html
         )
         if n:
-            print(f"  ✓ reads → {stats['reads']}")
+            print(f"  âœ“ reads â†’ {stats['reads']}")
             changed = True
 
     if "ris" in stats:
@@ -138,7 +138,7 @@ def patch_file(filepath: Path, stats: dict) -> bool:
             html
         )
         if n:
-            print(f"  ✓ RIS → {stats['ris']}")
+            print(f"  âœ“ RIS â†’ {stats['ris']}")
             changed = True
 
     if "recommendations" in stats:
@@ -148,19 +148,19 @@ def patch_file(filepath: Path, stats: dict) -> bool:
             html
         )
         if n:
-            print(f"  ✓ recommendations → {stats['recommendations']}")
+            print(f"  âœ“ recommendations â†’ {stats['recommendations']}")
             changed = True
 
     if changed and html != original:
         filepath.write_text(html, encoding="utf-8")
-        print(f"  → Saved: {filepath.name}")
+        print(f"  â†’ Saved: {filepath.name}")
     elif not changed:
-        print(f"  ℹ No matching stat placeholders found in {filepath.name}")
+        print(f"  â„¹ No matching stat placeholders found in {filepath.name}")
 
     return changed
 
 
-# ── Manual Override ───────────────────────────────────────────────────────────
+# â”€â”€ Manual Override â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def manual_update(reads: str, ris: str, recommendations: str):
     """
     Use this if the scraper fails (RG is JS-heavy and may block bots).
@@ -180,7 +180,7 @@ def manual_update(reads: str, ris: str, recommendations: str):
     print("\nDone. Commit and push the changes.")
 
 
-# ── Main ─────────────────────────────────────────────────────────────────────
+# â”€â”€ Main â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def main():
     if len(sys.argv) >= 5 and sys.argv[1] == "manual":
         # Usage: python update_rg_stats.py manual "42,500+" "61.2" "4"
@@ -191,7 +191,7 @@ def main():
     stats = fetch_stats()
 
     if not stats:
-        print("\n⚠  Scraper returned no data.")
+        print("\nâš   Scraper returned no data.")
         print("   ResearchGate uses heavy JavaScript rendering, so the page")
         print("   content may not be available via simple HTTP requests.")
         print()
@@ -212,7 +212,7 @@ def main():
         print()
 
     if any_changed:
-        print("✅  Done. Review the changes, then commit and push:\n")
+        print("âœ…  Done. Review the changes, then commit and push:\n")
         print("    git add research.html index.html")
         print("    git commit -m \"Update ResearchGate stats\"")
         print("    git push\n")
@@ -222,3 +222,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
