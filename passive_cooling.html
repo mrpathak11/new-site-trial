@@ -94,6 +94,7 @@
           <span><ion-icon name="person-outline" aria-hidden="true"></ion-icon> Suman Pathak</span>
           <span><ion-icon name="time-outline" aria-hidden="true"></ion-icon> 4 min read</span>
           <span><ion-icon name="pricetag-outline" aria-hidden="true"></ion-icon> Passive Cooling · Urban Heat · Buildings</span>
+          <span><ion-icon name="eye-outline" aria-hidden="true"></ion-icon> <span id="gc-count">—</span> views</span>
         </div>
       </header>
 
@@ -175,6 +176,33 @@
   <script>
     const fy = document.getElementById('footerYear');
     if (fy) fy.textContent = new Date().getFullYear();
+  </script>
+
+  <!-- GoatCounter analytics — replace YOUR_SITE with your GoatCounter site code -->
+  <!-- Sign up free at https://www.goatcounter.com/ then set your site code below -->
+  <script data-goatcounter="https://YOUR_SITE.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+  <script>
+    // Fetch and display view count for this page
+    (function() {
+      var gc = window.goatcounter || {};
+      function fetchCount() {
+        var path = window.location.pathname.split('/').pop() || '/';
+        fetch('https://YOUR_SITE.goatcounter.com/api/v0/stats/hits?filter=' + encodeURIComponent(path) + '&start=2020-01-01', {
+          headers: { 'Authorization': 'Bearer YOUR_API_TOKEN' }
+        })
+        .then(function(r){ return r.ok ? r.json() : null; })
+        .then(function(data) {
+          if (!data) return;
+          var total = (data.hits || []).reduce(function(s,h){ return s + (h.count || 0); }, 0);
+          var el = document.getElementById('gc-count');
+          if (el && total > 0) el.textContent = total.toLocaleString();
+        })
+        .catch(function(){});
+      }
+      // Slight delay so the page view registers first
+      setTimeout(fetchCount, 800);
+    })();
   </script>
 </body>
 </html>

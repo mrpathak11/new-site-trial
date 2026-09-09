@@ -159,10 +159,15 @@
         <ion-icon name="book-outline" class="rg-callout-icon" aria-hidden="true"></ion-icon>
         <div>
           <span class="rg-callout-label">ResearchGate Profile</span>
-          <p class="rg-callout-stats">Published research and academic work. <strong>40,860+</strong> total reads &nbsp;·&nbsp; Research Interest Score: <strong>57.3</strong> &nbsp;·&nbsp; <strong>3</strong> Recommendations</p>
+          <p class="rg-callout-stats"><span id="rg-reads" data-rg-stat="reads"><strong>40,860+</strong></span> total reads &nbsp;·&nbsp; Research Interest Score: <span id="rg-ris" data-rg-stat="ris"><strong>57.3</strong></span> &nbsp;·&nbsp; <span id="rg-recs" data-rg-stat="recs"><strong>3</strong></span> Recommendations</p>
         </div>
         <ion-icon name="open-outline" style="color:var(--text-secondary); font-size:0.95rem; flex-shrink:0;" aria-hidden="true"></ion-icon>
       </a>
+
+      <!-- ResearchGate disclaimer -->
+      <div class="reveal" style="max-width:680px; margin-top:4px; padding:14px 20px; background:var(--accent-glow); border-left:3px solid var(--border-accent); border-radius:0 var(--radius-sm) var(--radius-sm) 0; font-size:0.88rem; color:var(--text-secondary); line-height:1.65;">
+        <strong style="color:var(--text-primary);">A note on my ResearchGate publications:</strong> These are unpublished academic works — course projects, lab reports, and design studies — that I uploaded publicly in case someone finds them useful. They span from my first year through to my final year of the B.E. in Mechanical Engineering at Kathmandu University. The quality of content and presentation reflects where I was academically at the time of writing, so please keep that context in mind.
+      </div>
 
       <!-- Category filter -->
       <div class="category-filter" role="group" aria-label="Filter articles by category">

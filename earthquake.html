@@ -94,6 +94,7 @@
           <span><ion-icon name="person-outline" aria-hidden="true"></ion-icon> Suman Pathak</span>
           <span><ion-icon name="time-outline" aria-hidden="true"></ion-icon> 6 min read</span>
           <span><ion-icon name="pricetag-outline" aria-hidden="true"></ion-icon> Disaster Risk · Nepal · Resilience</span>
+          <span><ion-icon name="eye-outline" aria-hidden="true"></ion-icon> <span id="gc-count">—</span> views</span>
         </div>
       </header>
 
@@ -182,6 +183,28 @@
   <script>
     const fy = document.getElementById('footerYear');
     if (fy) fy.textContent = new Date().getFullYear();
+  </script>
+
+  <!-- GoatCounter — replace YOUR_SITE with your site code from goatcounter.com -->
+  <script data-goatcounter="https://YOUR_SITE.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+  <script>
+    (function() {
+      function fetchCount() {
+        var path = window.location.pathname.split('/').pop() || '/';
+        fetch('https://YOUR_SITE.goatcounter.com/api/v0/stats/hits?filter=' + encodeURIComponent(path) + '&start=2020-01-01', {
+          headers: { 'Authorization': 'Bearer YOUR_API_TOKEN' }
+        })
+        .then(function(r){ return r.ok ? r.json() : null; })
+        .then(function(data) {
+          if (!data) return;
+          var total = (data.hits || []).reduce(function(s,h){ return s + (h.count||0); }, 0);
+          var el = document.getElementById('gc-count');
+          if (el && total > 0) el.textContent = total.toLocaleString();
+        }).catch(function(){});
+      }
+      setTimeout(fetchCount, 800);
+    })();
   </script>
 </body>
 </html>
