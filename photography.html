@@ -6,6 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Photography | Suman Pathak</title>
+  <meta name="description" content="A photography collection by Suman Pathak — landscapes, cities, and moments captured between Nepal and Germany.">
+  <link rel="canonical" href="https://sumanpathak.com.np/photography.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sumanpathak.com.np/photography.html">
+  <meta property="og:title" content="Photography | Suman Pathak">
+  <meta property="og:description" content="Landscapes, cities, and moments captured between Nepal and Germany.">
+  <meta property="og:image" content="https://sumanpathak.com.np/assets/images/my-avatar.png">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
@@ -13,9 +22,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./assets/css/style.css">
@@ -25,12 +32,10 @@
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
   <style>
-    /* Photography specific styles */
     .photo-grid {
       column-count: 3;
       column-gap: 24px;
     }
-
     .photo-item {
       margin-bottom: 24px;
       break-inside: avoid;
@@ -40,262 +45,173 @@
       transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
       position: relative;
     }
-
     .photo-item img {
       width: 100%;
       display: block;
       transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
-
     .photo-item:hover {
       transform: translateY(-6px);
       box-shadow: var(--shadow-md);
       border-color: var(--border-accent);
       z-index: 1;
     }
-
     .photo-item:hover img {
       transform: scale(1.05);
     }
-
     .photo-overlay {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.2);
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.2);
       opacity: 0;
       transition: opacity 0.3s ease;
     }
-
     .photo-item:hover .photo-overlay {
       opacity: 1;
     }
-
     .photo-intro {
       margin-bottom: 32px;
       color: var(--text-secondary);
       font-size: 1rem;
-      line-height: 1.7;
+      line-height: 1.75;
+      max-width: 600px;
     }
-
     @media (max-width: 900px) {
-      .photo-grid {
-        column-count: 2;
-        column-gap: 20px;
-      }
-
-      .photo-item {
-        margin-bottom: 20px;
-      }
+      .photo-grid { column-count: 2; column-gap: 20px; }
+      .photo-item { margin-bottom: 20px; }
     }
-
     @media (max-width: 600px) {
-      .photo-grid {
-        column-count: 1;
-      }
+      .photo-grid { column-count: 1; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Floating particles -->
   <div class="particles" id="particles" aria-hidden="true"></div>
 
-  <!-- ===== TOP NAVIGATION ===== -->
-  <nav class="top-nav" id="topNav">
+  <nav class="top-nav" id="topNav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="index.html" class="nav-brand">
-        <div class="nav-brand-icon">SP</div>
+      <a href="index.html" class="nav-brand" aria-label="Suman Pathak — Home">
+        <div class="nav-brand-icon" aria-hidden="true">SP</div>
         <span class="nav-brand-name">Suman Pathak</span>
       </a>
-
       <div class="nav-actions">
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html#about" class="nav-link">About</a></li>
-          <li><a href="index.html#resume" class="nav-link">Resume</a></li>
-          <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
-          <li><a href="index.html#blog" class="nav-link">Blog</a></li>
-          <li><a href="photography.html" class="nav-link active">Photography</a></li>
+        <ul class="nav-links" id="navLinks" role="list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="work.html" class="nav-link">Work</a></li>
+          <li><a href="research.html" class="nav-link">Research &amp; Writing</a></li>
+          <li><a href="photography.html" class="nav-link active" aria-current="page">Photography</a></li>
+          <li><a href="./assets/images/my_resume.pdf" class="nav-link" target="_blank" rel="noopener">CV</a></li>
           <li><a href="index.html#contact" class="nav-link">Contact</a></li>
         </ul>
-
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme">
           <ion-icon name="sunny-outline" class="icon-sun"></ion-icon>
           <ion-icon name="moon-outline" class="icon-moon"></ion-icon>
         </button>
-
-        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-          <span></span>
-          <span></span>
-          <span></span>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
-
-    <!-- Mobile Drawer -->
     <div class="mobile-drawer" id="mobileDrawer">
-      <a href="index.html#about" class="nav-link">About</a>
-      <a href="index.html#resume" class="nav-link">Resume</a>
-      <a href="index.html#portfolio" class="nav-link">Portfolio</a>
-      <a href="index.html#blog" class="nav-link">Blog</a>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="work.html" class="nav-link">Work</a>
+      <a href="research.html" class="nav-link">Research &amp; Writing</a>
       <a href="photography.html" class="nav-link active">Photography</a>
+      <a href="./assets/images/my_resume.pdf" class="nav-link" target="_blank" rel="noopener">CV</a>
       <a href="index.html#contact" class="nav-link">Contact</a>
     </div>
   </nav>
 
-  <!-- ===== MAIN CONTENT ===== -->
   <main class="main-content">
     <section class="section">
       <header class="section-header reveal">
-        <h2 class="h2">Photography</h2>
+        <div>
+          <span class="section-eyebrow">Visual Archive</span>
+          <h1 class="h2">Photography</h1>
+        </div>
       </header>
-
       <div class="section-content">
-        <p class="photo-intro reveal">A collection of moments captured through my lens..</p>
-
+        <p class="photo-intro reveal">
+          A collection of moments captured through my lens — landscapes, cities, and quiet details observed between Nepal and Germany. Photography is how I slow down and pay attention.
+        </p>
         <div class="photo-grid">
-          <div class="photo-item reveal"><img src="./Capture/1000001099.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000001864.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000004324.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000004346.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000005209.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000006850.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000009141.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000010194.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000011803.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000012181.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000012196.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000012198.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000015789.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000025042.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000025174.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000025277.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000025912.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000025916.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000025925.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000027066.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000027278.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000027507.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000027641.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000027774.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000027918.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000028054.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000028055.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000028060.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000028069.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000028070.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000028349.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000028350.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000028513.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000028928.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000028942.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000028998.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000029055.heic" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000029081.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000029085.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000029160.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000029161.jpg" alt="Photography" loading="lazy"></div>
-          <div class="photo-item reveal"><img src="./Capture/1000029162.jpg" alt="Photography" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000001099.jpg" alt="Landscape photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000001864.jpg" alt="Landscape photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000004324.jpg" alt="Nature photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000004346.jpg" alt="Scenic photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000005209.jpg" alt="Outdoor photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000006850.jpg" alt="Landscape photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000009141.jpg" alt="Travel photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000010194.jpg" alt="Scenic photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000011803.jpg" alt="Nature photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000012181.jpg" alt="Outdoor photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000012196.jpg" alt="Travel photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000012198.jpg" alt="Photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000015789.jpg" alt="Landscape photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000025042.jpg" alt="Scenic photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000025174.jpg" alt="Nature photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000025277.jpg" alt="Travel photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000025912.jpg" alt="Outdoor photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000025916.jpg" alt="Landscape photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000025925.jpg" alt="Scenic photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000027066.jpg" alt="Mountain or nature scene by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000027278.jpg" alt="Landscape photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000027507.jpg" alt="Travel photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000027641.jpg" alt="Nature photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000027774.jpg" alt="Scenic photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000027918.jpg" alt="Outdoor photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000028054.jpg" alt="Photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000028055.jpg" alt="Landscape photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000028060.jpg" alt="Travel photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000028069.jpg" alt="Nature photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000028070.jpg" alt="Scenic photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000028349.jpg" alt="Landscape photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000028350.jpg" alt="Outdoor photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000028513.jpg" alt="Travel photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000028928.jpg" alt="Scenic photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000028942.jpg" alt="Nature photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000028998.jpg" alt="Landscape photograph by Suman Pathak" loading="lazy"></div>
+          <!-- 1000029055.heic omitted — HEIC format not supported by browsers -->
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000029081.jpg" alt="Outdoor photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000029085.jpg" alt="Travel photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000029160.jpg" alt="Scenic photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000029161.jpg" alt="Nature photograph by Suman Pathak" loading="lazy"></div>
+          <div class="photo-item reveal"><div class="photo-overlay"></div><img src="./Capture/1000029162.jpg" alt="Landscape photograph by Suman Pathak" loading="lazy"></div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="footer-inner">
-      <ul class="footer-socials">
-        <li><a href="https://www.linkedin.com/in/sumanpathak1" target="_blank" class="social-link"
-            aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-        <li><a href="https://www.researchgate.net/profile/Suman-Pathak" target="_blank" class="social-link"
-            aria-label="ResearchGate"><ion-icon name="book-outline"></ion-icon></a></li>
-        <li><a href="https://www.facebook.com/mrpathak11/" target="_blank" class="social-link"
-            aria-label="Facebook"><ion-icon name="logo-facebook"></ion-icon></a></li>
-        <li><a href="https://www.instagram.com/mrpathak10_/" target="_blank" class="social-link"
-            aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
+      <div class="footer-brand">
+        <div class="nav-brand-icon" aria-hidden="true">SP</div>
+        <div class="footer-brand-text">
+          <span class="footer-brand-name">Suman Pathak</span>
+          <span class="footer-brand-role">Energy Systems Engineer · Freiburg, Germany</span>
+        </div>
+      </div>
+      <ul class="footer-socials" role="list">
+        <li><a href="https://www.linkedin.com/in/sumanpathak1" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+        <li><a href="https://www.researchgate.net/profile/Suman-Pathak" target="_blank" rel="noopener" class="social-link" aria-label="ResearchGate"><ion-icon name="book-outline"></ion-icon></a></li>
+        <li><a href="https://www.instagram.com/mrpathak10_/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
       </ul>
       <div class="footer-contact">
-        <a href="mailto:sumanpathak.sp143@gmail.com"><ion-icon name="mail-outline"></ion-icon>
-          sumanpathak.sp143@gmail.com</a>
-        <p><ion-icon name="location-outline"></ion-icon> Freiburg, Germany</p>
+        <a href="mailto:sumanpathak.sp143@gmail.com"><ion-icon name="mail-outline" aria-hidden="true"></ion-icon> sumanpathak.sp143@gmail.com</a>
       </div>
-      <p class="footer-copyright">&copy; 2025 Suman Pathak. All rights reserved.</p>
+      <p class="footer-copyright">&copy; <span id="footerYear"></span> Suman Pathak. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Photography page JS -->
+  <script src="./assets/js/script.js"></script>
   <script>
-    'use strict';
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); } });
-    }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
-    reveals.forEach(el => obs.observe(el));
-
-    // Navbar scroll shadow
-    const topNav = document.getElementById('topNav');
-    window.addEventListener('scroll', () => {
-      topNav.classList.toggle('scrolled', window.scrollY > 20);
-    });
-
-    // Theme toggle
-    const themeToggle = document.getElementById('themeToggle');
-    const htmlEl = document.documentElement;
-    function getTheme() {
-      const saved = localStorage.getItem('sp-theme');
-      if (saved) return saved;
-      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-    }
-    function setTheme(t) {
-      htmlEl.setAttribute('data-theme', t);
-      localStorage.setItem('sp-theme', t);
-    }
-    setTheme(getTheme());
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        setTheme(htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-      });
-    }
-
-    // Particles
-    const pc = document.getElementById('particles');
-    if (pc) {
-      const n = window.innerWidth < 768 ? 8 : 15;
-      for (let i = 0; i < n; i++) {
-        const p = document.createElement('div');
-        p.classList.add('particle');
-        p.style.left = Math.random() * 100 + '%';
-        p.style.width = (Math.random() * 3 + 1) + 'px';
-        p.style.height = p.style.width;
-        p.style.animationDuration = (Math.random() * 15 + 10) + 's';
-        p.style.animationDelay = (Math.random() * 10) + 's';
-        p.style.opacity = '0';
-        pc.appendChild(p);
-      }
-    }
-
-    // Hamburger
-    const hamburger = document.getElementById('hamburger');
-    const drawer = document.getElementById('mobileDrawer');
-    if (hamburger && drawer) {
-      hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('open');
-        drawer.classList.toggle('open');
-        document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
-      });
-      drawer.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          hamburger.classList.remove('open');
-          drawer.classList.remove('open');
-          document.body.style.overflow = '';
-        });
-      });
-    }
+    const fy = document.getElementById('footerYear');
+    if (fy) fy.textContent = new Date().getFullYear();
   </script>
 </body>
-
 </html>

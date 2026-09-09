@@ -345,3 +345,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// ============================
+// DYNAMIC FOOTER YEAR
+// ============================
+const footerYear = document.getElementById('footerYear');
+if (footerYear) {
+  footerYear.textContent = new Date().getFullYear();
+}

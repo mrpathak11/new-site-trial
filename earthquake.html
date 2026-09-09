@@ -1,23 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nepal’s Earthquake Preparedness | Suman Pathak</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nepal's Earthquake Preparedness | Suman Pathak</title>
+  <meta name="description" content="A decade after the 2015 Gorkha earthquake, Nepal has advanced in preparedness and resilience — but challenges persist. An analysis by Suman Pathak.">
+  <link rel="canonical" href="https://sumanpathak.com.np/earthquake.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sumanpathak.com.np/earthquake.html">
+  <meta property="og:title" content="Nepal's Earthquake Preparedness: Resilience, Risk Monitoring &amp; Comprehensive Strategies">
+  <meta property="og:description" content="A decade after the 2015 Gorkha earthquake, Nepal has advanced in preparedness and resilience — but challenges persist in a nation sitting atop active tectonic stress.">
+  <meta property="og:image" content="https://sumanpathak.com.np/assets/images/earthquake3.png">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-  <!-- Custom CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/article.css">
 
   <!-- Ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -26,136 +35,153 @@
 
 <body>
 
-  <div class="app-container">
+  <div class="particles" id="particles" aria-hidden="true"></div>
 
-    <!-- Sidebar / Header -->
-    <aside class="sidebar">
-      <div class="sidebar-header">
-        <div class="avatar-container">
-          <a href="index.html"><img src="./assets/images/my-avatar.png" alt="Suman Pathak" class="avatar"></a>
-        </div>
-        <h1 class="name"><a href="index.html">Suman Pathak</a></h1>
-        <p class="title">Mechanical Engineer<br>Energy Enthusiast</p>
-      </div>
-
-      <nav class="navbar">
-        <ul class="nav-list">
-          <li><a href="index.html#about" class="nav-link">About</a></li>
-          <li><a href="index.html#resume" class="nav-link">Resume</a></li>
-          <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
-          <li><a href="index.html#blog" class="nav-link active">Blog</a></li>
+  <!-- NAVIGATION -->
+  <nav class="top-nav" id="topNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="Suman Pathak — Home">
+        <div class="nav-brand-icon" aria-hidden="true">SP</div>
+        <span class="nav-brand-name">Suman Pathak</span>
+      </a>
+      <div class="nav-actions">
+        <ul class="nav-links" id="navLinks" role="list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="work.html" class="nav-link">Work</a></li>
+          <li><a href="research.html" class="nav-link active" aria-current="page">Research &amp; Writing</a></li>
+          <li><a href="photography.html" class="nav-link">Photography</a></li>
+          <li><a href="./assets/images/my_resume.pdf" class="nav-link" target="_blank" rel="noopener">CV</a></li>
           <li><a href="index.html#contact" class="nav-link">Contact</a></li>
         </ul>
-      </nav>
-
-      <div class="sidebar-footer">
-        <ul class="social-list">
-          <li><a href="https://www.linkedin.com/in/sumanpathak1" target="_blank" class="social-link"><ion-icon
-                name="logo-linkedin"></ion-icon></a></li>
-          <li><a href="https://www.researchgate.net/profile/Suman-Pathak" target="_blank" class="social-link"><ion-icon
-                name="book-outline"></ion-icon></a></li>
-          <li><a href="https://www.facebook.com/mrpathak11/" target="_blank" class="social-link"><ion-icon
-                name="logo-facebook"></ion-icon></a></li>
-          <li><a href="https://www.instagram.com/mrpathak10_/" target="_blank" class="social-link"><ion-icon
-                name="logo-instagram"></ion-icon></a></li>
-        </ul>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme">
+          <ion-icon name="sunny-outline" class="icon-sun"></ion-icon>
+          <ion-icon name="moon-outline" class="icon-moon"></ion-icon>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-    </aside>
+    </div>
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="work.html" class="nav-link">Work</a>
+      <a href="research.html" class="nav-link active">Research &amp; Writing</a>
+      <a href="photography.html" class="nav-link">Photography</a>
+      <a href="./assets/images/my_resume.pdf" class="nav-link" target="_blank" rel="noopener">CV</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </div>
+  </nav>
 
-    <!-- Main Content -->
-    <main class="main-content">
-      <section class="section active" style="opacity: 1; transform: none;">
-        <header class="section-header">
-          <h2 class="h2">Blog Post</h2>
-          <a href="index.html#blog" class="btn-download" style="padding: 5px 15px; font-size: 0.8rem;">Back to Blog</a>
-        </header>
+  <main>
+    <article class="article-page">
 
-        <div class="section-content" style="max-width: 800px; margin: 0 auto;">
-          <div class="blog-banner" style="margin-bottom: 30px; border-radius: 12px; overflow: hidden;">
-            <img src="./assets/images/earthquake3.png" alt="Nepal’s Earthquake Preparedness"
-              style="width: 100%; height: auto;">
-          </div>
+      <a href="research.html" class="article-back">
+        <ion-icon name="arrow-back-outline" aria-hidden="true"></ion-icon>
+        Back to Research &amp; Writing
+      </a>
 
-          <h1 class="h2" style="margin-bottom: 10px;">Nepal’s Earthquake Preparedness: Resilience, Risk Monitoring, and
-            Comprehensive Strategies</h1>
+      <header class="article-header">
+        <div class="article-eyebrow">
+          <span class="article-cat">Buildings &amp; Climate</span>
+          <span class="dot"></span>
+          <time datetime="2025-04-11">April 11, 2025</time>
+        </div>
+        <h1 class="article-main-title">Nepal's Earthquake Preparedness: Resilience, Risk Monitoring, and Comprehensive Strategies</h1>
+        <p class="article-deck">A decade after the 2015 Gorkha earthquake, Nepal has advanced in preparedness and resilience — but challenges persist in a nation sitting atop active tectonic stress.</p>
+        <div class="article-meta-bar">
+          <span><ion-icon name="person-outline" aria-hidden="true"></ion-icon> Suman Pathak</span>
+          <span><ion-icon name="time-outline" aria-hidden="true"></ion-icon> 6 min read</span>
+          <span><ion-icon name="pricetag-outline" aria-hidden="true"></ion-icon> Disaster Risk · Nepal · Resilience</span>
+        </div>
+      </header>
 
-          <div class="blog-meta" style="margin-bottom: 30px;">
-            <span class="blog-category">Buildings</span>
-            <span class="dot"></span>
-            <time datetime="2025-04-11">April 11, 2025</time>
-          </div>
+      <img src="./assets/images/earthquake3.png" alt="Nepal earthquake preparedness and resilience infrastructure" class="article-hero-image" loading="lazy">
 
-          <div class="blog-body" style="font-size: 1.05rem; color: var(--text-color);">
-            <p style="margin-bottom: 20px;">
-              Nepal, nestled in the seismically active Himalayan belt, contends with a spectrum of natural
-              hazards—earthquakes, landslides, glacial lake outburst floods (GLOFs), and avalanches. The devastating
-              Gorkha earthquake of April 25, 2015, with a magnitude of 7.8, claimed nearly 9,000 lives, displaced
-              millions, and exposed the nation’s vulnerability.
-            </p>
-            <p style="margin-bottom: 20px;">
-              A decade later, as of April 2025, Nepal has advanced in preparedness, resilience, and risk monitoring, but
-              challenges persist. Recent seismic events underscore the urgency of these efforts. This article examines
-              Nepal’s progress, strengths, weaknesses, unique Himalayan risks, and the pivotal role of resilience,
-              monitoring, and international collaboration, while integrating updates on recent earthquakes.
-            </p>
+      <div class="article-body">
 
-            <h3 class="h3">Recent Earthquake and Updates (April 2025)</h3>
-            <p style="margin-bottom: 20px;">
-              On April 4, 2025, a 5.0-magnitude earthquake struck western Nepal, centered in Jajarkot, with tremors felt
-              across northern India, including Patna and Uttar Pradesh. The quake, occurring at 7:52 PM IST at a depth
-              of 20 km, caused no reported casualties or significant damage, per Nepal’s National Earthquake Monitoring
-              and Research Center (NEMRC) and India’s National Centre for Seismology (NCS). However, it rattled
-              communities recovering from the 2023 Jajarkot quake, which killed 153 people. Local authorities deployed
-              response teams to assess impacts, and the Nepal Red Cross activated recovery protocols, leveraging
-              pre-positioned supplies. This event follows a pattern of frequent tremors, with 38 quakes above magnitude
-              2 in Nepal over the past 30 days, the strongest being a 5.1-magnitude quake near Lobuche on March 8, 2025.
-            </p>
-            <p style="margin-bottom: 20px;">
-              Seismologists warn that western Nepal remains at high risk for a major quake, potentially exceeding
-              magnitude 6, due to unrelieved tectonic stress. The April quake prompted renewed calls for stricter
-              building code enforcement and community drills, with the government urging residents to stay vigilant for
-              aftershocks. Social media reflected public anxiety, with posts noting the tremors’ duration and intensity,
-              though no structural collapses were reported. These updates highlight Nepal’s ongoing seismic activity and
-              the need for sustained preparedness.
-            </p>
+        <p>Nepal, nestled in the seismically active Himalayan belt, contends with a spectrum of natural hazards — earthquakes, landslides, glacial lake outburst floods (GLOFs), and avalanches. The devastating Gorkha earthquake of April 25, 2015, with a magnitude of 7.8, claimed nearly 9,000 lives, displaced millions, and exposed the nation's vulnerability.</p>
 
-            <h3 class="h3">Progress in Earthquake Preparedness and Resilience</h3>
-            <p style="margin-bottom: 20px;">
-              Since the 2015 Gorkha quake, Nepal has prioritized reconstruction and resilience. The National
-              Reconstruction Authority (NRA), formed in December 2015, has rebuilt 74% of 7,553 schools with
-              seismic-resistant designs by 2021, with 20% still in progress as of Amesbury2025. Housing reconstruction
-              is 90% complete, emphasizing safer structures. The 2017 Disaster Risk Reduction and Management Act aligns
-              with the Sendai Framework (2015–2030), embedding resilience—defined as the ability to anticipate,
-              withstand, adapt, and recover—into policy.
-            </p>
-            <!-- ... (rest of the content would go here, I'll truncate for brevity but in a real scenario I'd keep it all) ... -->
-            <p style="margin-bottom: 20px;">
-              The Nepal Risk Reduction Consortium (NRRC), launched in 2011, fosters collaborative disaster risk
-              reduction. Community efforts thrive, exemplified by initiatives like the Program for Enhancement of
-              Emergency Response (PEER), backed by USAID, which has trained over 737 first responders from the Nepal
-              Army, Police, and Red Cross. Local leaders, such as Kalpana, a 24-year-old who organized relief during the
-              2023 Jajarkot quake, demonstrate grassroots resilience. Educational programs in 22 western Nepal schools,
-              annual Earthquake Safety Day drills, and retrofitting of hospitals and schools bolster preparedness.
-              Twelve warehouses managed by the Nepal Red Cross, stocked with USAID-funded supplies, ensure rapid
-              response, as seen after the April 2025 quake.
-            </p>
+        <p>A decade later, as of April 2025, Nepal has advanced meaningfully in preparedness, resilience, and risk monitoring. But challenges persist. Recent seismic events underscore the urgency of continued effort. This article examines Nepal's progress, its remaining weaknesses, the unique hazards of the Himalayan context, and the role of community resilience and international collaboration.</p>
 
-            <h3 class="h3">Conclusion</h3>
-            <p style="margin-bottom: 20px;">
-              Nepal’s earthquake preparedness blends progress with persistent challenges. The April 2025 Jajarkot quake,
-              though less destructive, underscores the nation’s ongoing seismic peril and the need for vigilance.
-              Resilience—forged through policy, community action, and retrofitted infrastructure—pairs with advanced
-              monitoring to counter seismic and secondary hazards. Urban and rural risks demand tailored solutions, from
-              enforcing building safety to preserving open spaces and tracking landslides and glaciers. International
-              collaboration, from USAID to ICIMOD, bolsters these efforts. As Nepal navigates its Himalayan
-              vulnerability, a unified, data-driven, and community-centric approach can transform peril into enduring
-              strength.
-            </p>
+        <h2>Recent Events: April 2025 Update</h2>
+
+        <p>On April 4, 2025, a 5.0-magnitude earthquake struck western Nepal, centred in Jajarkot, with tremors felt across northern India including Patna and Uttar Pradesh. The quake occurred at a depth of 20 km and caused no reported casualties or significant structural damage, per Nepal's National Earthquake Monitoring and Research Center (NEMRC) and India's National Centre for Seismology (NCS).</p>
+
+        <p>However, it rattled communities still recovering from the 2023 Jajarkot quake, which killed 153 people. Local authorities deployed response teams, and the Nepal Red Cross activated recovery protocols using pre-positioned supplies. This event follows a pattern of frequent tremors — 38 quakes above magnitude 2 in Nepal over the preceding 30 days, including a 5.1-magnitude event near Lobuche on March 8, 2025.</p>
+
+        <div class="article-stat">
+          <ion-icon name="warning-outline" aria-hidden="true"></ion-icon>
+          <div class="article-stat-text">
+            <strong>Seismologists warn</strong> that western Nepal remains at high risk for a major quake potentially exceeding magnitude 6, due to unrelieved tectonic stress accumulated since 2015. The April 2025 event prompted renewed calls for stricter building code enforcement and community preparedness drills.
           </div>
         </div>
-      </section>
-    </main>
-  </div>
-</body>
 
+        <h2>Progress in Earthquake Preparedness and Resilience</h2>
+
+        <p>Since the 2015 Gorkha earthquake, Nepal has prioritised reconstruction and resilience-building. The National Reconstruction Authority (NRA), formed in December 2015, has rebuilt 74% of 7,553 schools with seismic-resistant designs by 2021, with 20% still in progress as of 2025. Housing reconstruction has reached approximately 90% completion, emphasising safer structural standards.</p>
+
+        <p>The 2017 Disaster Risk Reduction and Management Act aligns Nepal's policy framework with the Sendai Framework (2015–2030), embedding resilience — defined as the capacity to anticipate, withstand, adapt, and recover — into national legislation and planning.</p>
+
+        <h2>Community Resilience and International Collaboration</h2>
+
+        <p>The Nepal Risk Reduction Consortium (NRRC), launched in 2011, fosters collaborative disaster risk reduction across government, civil society, and international partners. Community-level efforts have been essential: the Program for Enhancement of Emergency Response (PEER), backed by USAID, has trained over 737 first responders from the Nepal Army, Police, and Red Cross.</p>
+
+        <p>Grassroots resilience is visible. Educational programmes in 22 western Nepal schools, annual Earthquake Safety Day drills, and the retrofitting of hospitals and schools have strengthened community-level preparedness. Twelve warehouses managed by the Nepal Red Cross — stocked with USAID-funded emergency supplies — enable rapid response, as seen following the April 2025 Jajarkot event.</p>
+
+        <h2>Remaining Challenges</h2>
+
+        <p>Despite these advances, significant gaps remain. Building code enforcement in informal urban settlements is inconsistent. Kathmandu, home to millions of people in densely built informal structures, remains one of the most earthquake-vulnerable cities in Asia. Open space preservation and landslide monitoring — particularly critical in the context of climate-driven precipitation changes — require sustained investment and coordination.</p>
+
+        <p>Rural communities in remote mountain districts still face significant response time delays due to infrastructure limitations. International humanitarian logistics, while improved, remain constrained by Nepal's challenging terrain.</p>
+
+        <h2>Conclusion</h2>
+
+        <p>Nepal's earthquake preparedness story is one of genuine progress paired with persistent vulnerability. The April 2025 Jajarkot quake, though less destructive than the 2015 event, is a reminder that seismic risk remains high and vigilance cannot be relaxed.</p>
+
+        <p>Resilience — built through policy, community action, retrofitted infrastructure, and sustained international collaboration — offers Nepal a path toward managing this risk more effectively. A unified, data-driven, and community-centric approach, attuned to both seismic and climate-related hazards, is the most credible way forward.</p>
+
+      </div>
+
+      <nav class="article-footer-nav" aria-label="Article navigation">
+        <a href="research.html" class="article-footer-link">
+          <ion-icon name="arrow-back-outline" aria-hidden="true"></ion-icon> All Articles
+        </a>
+        <a href="hydropower-illusion.html" class="article-footer-link">
+          The Hydropower Illusion <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+        </a>
+      </nav>
+
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-brand-icon" aria-hidden="true">SP</div>
+        <div class="footer-brand-text">
+          <span class="footer-brand-name">Suman Pathak</span>
+          <span class="footer-brand-role">Energy Systems Engineer · Freiburg, Germany</span>
+        </div>
+      </div>
+      <ul class="footer-socials" role="list">
+        <li><a href="https://www.linkedin.com/in/sumanpathak1" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+        <li><a href="https://www.researchgate.net/profile/Suman-Pathak" target="_blank" rel="noopener" class="social-link" aria-label="ResearchGate"><ion-icon name="book-outline"></ion-icon></a></li>
+        <li><a href="https://www.instagram.com/mrpathak10_/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
+      </ul>
+      <div class="footer-contact">
+        <a href="mailto:sumanpathak.sp143@gmail.com"><ion-icon name="mail-outline" aria-hidden="true"></ion-icon> sumanpathak.sp143@gmail.com</a>
+      </div>
+      <p class="footer-copyright">&copy; <span id="footerYear"></span> Suman Pathak. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="./assets/js/script.js"></script>
+  <script>
+    const fy = document.getElementById('footerYear');
+    if (fy) fy.textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>

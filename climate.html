@@ -1,168 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>The impact of climate change on building design and performance</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-    }
+  <title>Climate Change and Building Design | Suman Pathak</title>
+  <meta name="description" content="How a changing climate is reshaping architecture — from sustainable materials and passive design to smart building systems. A case study from Nepal. By Suman Pathak.">
+  <link rel="canonical" href="https://sumanpathak.com.np/climate.html">
 
-    header {
-      background-color: #333;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sumanpathak.com.np/climate.html">
+  <meta property="og:title" content="Impact of Climate Change on Building Design and Performance">
+  <meta property="og:description" content="How a changing climate is reshaping architecture — from sustainable materials and passive design to smart building systems, with a case study from Nepal.">
+  <meta property="og:image" content="https://sumanpathak.com.np/assets/images/climate.jpg">
 
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-      background-color: white;
-      padding: 20px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      border-radius: 5px;
-    }
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
 
-    .blog-content {
-      margin-top: 20px;
-    }
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-    .blog-category {
-      background-color: #4CAF50;
-      color: white;
-      padding: 5px;
-      border-radius: 5px;
-      display: inline-block;
-      margin: 0;
-    }
+  <!-- CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/article.css">
 
-    .blog-meta {
-      margin: 10px 0;
-      font-size: 0.8em;
-    }
-
-    .blog-text {
-      line-height: 1.5;
-    }
-
-    .blog-banner-box {
-      text-align: center;
-    }
-
-    .blog-banner-box img {
-      width: 50%;
-    }
-  </style>
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
 
 <body>
 
-  <header>
-    <h1>Nepal’s Earthquake Preparedness: Resilience, Risk Monitoring, and Comprehensive Strategies</h1>
-  </header>
-  
-  <main>
-    <figure class="blog-banner-box">
-      <img src="https://raw.githubusercontent.com/mrpathak11/new-site-trial/main/assets/images/earthquake.png" 
-           alt="Nepal’s Earthquake Preparedness: Resilience, Risk Monitoring, and Comprehensive Strategies" 
-           loading="lazy">
-    </figure>
-  
-    <div class="blog-content">
-      <div class="blog-meta">
-        <p class="blog-category">Buildings</p>
-        <span class="dot"></span>
-        <time datetime="2025-04-11">April 11, 2025</time>
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <nav class="top-nav" id="topNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="Suman Pathak — Home">
+        <div class="nav-brand-icon" aria-hidden="true">SP</div>
+        <span class="nav-brand-name">Suman Pathak</span>
+      </a>
+      <div class="nav-actions">
+        <ul class="nav-links" id="navLinks" role="list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="work.html" class="nav-link">Work</a></li>
+          <li><a href="research.html" class="nav-link active" aria-current="page">Research &amp; Writing</a></li>
+          <li><a href="photography.html" class="nav-link">Photography</a></li>
+          <li><a href="./assets/images/my_resume.pdf" class="nav-link" target="_blank" rel="noopener">CV</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme">
+          <ion-icon name="sunny-outline" class="icon-sun"></ion-icon>
+          <ion-icon name="moon-outline" class="icon-moon"></ion-icon>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-  
-      <div class="container">
-        <section>
-  
-
-      <p class="blog-text">
-        In an era marked by unprecedented climate challenges, the architectural landscape is undergoing a paradigm shift. The impact of climate change on building design and performance has become a critical consideration in the construction industry. Architects, engineers, and stakeholders are now compelled to reassess traditional practices, embracing sustainable solutions that not only mitigate environmental impact but also enhance building resilience. This article explores the intricate relationship between climate change and building design, unraveling the ways in which the industry is evolving to address the challenges and opportunities presented by a changing climate.
-      </p>
-
-      <ul>
-        <li><p class="blog-text"><strong>Understanding the Climate Change Challenge:</strong>
-          Climate change is characterized by rising global temperatures, extreme weather events, and shifting precipitation patterns. These changes have profound implications for the built environment, affecting everything from energy consumption to structural integrity. Architects must now grapple with designing buildings that can withstand the intensifying effects of climate change while minimizing their own carbon footprint.
-        </p></li>
-      </ul>
-      
-      <ul>
-        <li><p class="blog-text"><strong>Sustainable Design Principles:</strong>
-          To optimize building performance in the face of climate change, architects are increasingly turning to sustainable design principles. Incorporating elements such as passive solar design, natural ventilation, and green roofs not only reduces a building's environmental impact but also enhances its energy efficiency. This approach not only mitigates the building's contribution to climate change but also equips it to adapt to changing conditions.
-        </p></li>
-      </ul>
-      
-      <ul>
-        <li><p class="blog-text"><strong>Technological Innovations in Building Materials:</strong>
-          The advent of cutting-edge building materials is playing a pivotal role in climate-resilient design. From high-performance insulation materials to advanced glass technologies, architects now have an array of tools at their disposal to create structures that are not only environmentally responsible but also better equipped to withstand the challenges posed by climate change.
-        </p></li>
-      </ul>
-      
-      <ul>
-        <li><p class="blog-text"><strong>Smart Building Technologies:</strong>
-          The integration of smart building technologies is another key strategy to optimize the performance of structures in the face of a changing climate. IoT (Internet of Things) devices, building automation systems, and real-time data analytics enable buildings to respond dynamically to environmental conditions, optimizing energy use and ensuring occupant comfort.
-        </p></li>
-      </ul>
-      
-      <ul>
-        <li><p class="blog-text"><strong>Case Studies: Showcasing Climate-Resilient Designs:</strong>
-          Highlighting real-world examples of climate-resilient building designs can provide valuable insights into successful strategies. Case studies could include projects that have successfully implemented sustainable and climate-responsive features, showcasing how these innovations contribute to both environmental conservation and economic efficiency.
-        </p></li>
-      </ul>
-      
-      <ul>
-        <li><p class="blog-text"><strong>Regulatory Landscape:</strong>
-          The impact of climate change on building design is also reflected in the evolving regulatory landscape. Governments and municipalities are increasingly adopting stringent building codes and standards that prioritize sustainability and resilience. Understanding and complying with these regulations is paramount for architects and builders aiming to stay ahead in an industry that is swiftly adapting to new environmental imperatives.
-        </p></li>
-      </ul>
-      
-
-      <h2>Case Study: Climate-Resilient Building Design in Nepal</h2>
-
-      <p>Nepal, nestled in the Himalayan region, is particularly susceptible to the impacts of climate change, experiencing heightened risks of extreme weather events, glacial melt, and changing precipitation patterns. In response to these challenges, architects and engineers in Nepal have been pioneering climate-resilient building design, showcasing an innovative approach to address the specific environmental conditions of the region.</p>
-
-      <h3>Location and Context:</h3>
-
-      <p>One notable project is the Green Village in Dhading, Nepal. Situated in a seismic and environmentally sensitive zone, this eco-friendly settlement incorporates sustainable design principles to minimize its environmental impact while enhancing its resilience to climate-related challenges.</p>
-
-      <h3>Passive Solar Design:</h3>
-
-      <p>The architects of the Green Village employed passive solar design strategies to harness the abundant sunlight in the region. Orienting buildings to maximize solar exposure, incorporating thermal mass, and using energy-efficient glazing are integral components of the design. These measures not only reduce the dependency on artificial heating but also contribute to a more comfortable indoor environment.</p>
-
-      <h3>Rainwater Harvesting and Water Management:</h3>
-
-      <p>Given the variability in precipitation patterns, the Green Village incorporates rainwater harvesting systems to address water scarcity issues during dry seasons. By collecting and storing rainwater, the community ensures a sustainable water supply for various needs, contributing to both climate resilience and water conservation.</p>
-
-      <h3>Earthquake-Resistant Construction:</h3>
-
-      <p>Nepal is situated in a seismically active zone, and the Green Village project prioritizes earthquake-resistant construction techniques. The use of locally sourced materials and innovative construction methods, such as bamboo and stabilized earth blocks, enhances the structural integrity of buildings, making them more resilient to seismic events.</p>
-
-      <h3>Community Involvement and Education:</h3>
-
-      <p>A key aspect of the success of the Green Village project lies in community involvement and education. Residents are actively engaged in sustainable practices, including waste management, energy conservation, and the upkeep of green spaces. Educational programs within the community empower residents to understand the importance of climate-resilient design and its positive impact on their daily lives.</p>
-
-      <h3>Lessons Learned and Future Directions:</h3>
-
-      <p>The Green Village project in Nepal exemplifies how climate-resilient building design can be successfully implemented in challenging environmental contexts. The case study highlights the importance of a holistic approach, incorporating passive design strategies, innovative construction methods, and community involvement.</p>
-
-      <p>To replicate the success of such initiatives, architects and stakeholders in Nepal and beyond should prioritize local context, leverage traditional building practices, and integrate sustainable solutions that address the specific challenges posed by climate change. By sharing knowledge and experiences gained from projects like the Green Village, the global community can collectively work towards creating a built environment that is not only resilient to climate change but also environmentally responsible and socially inclusive.</p>
-      
-      <h2>Wrap-up</h2>
-
-      <p>The impact of climate change on building design and performance is reshaping the architectural landscape. Embracing sustainable design principles, leveraging technological innovations, and complying with evolving regulations are essential steps for architects and stakeholders seeking to create structures that not only withstand the challenges of a changing climate but also contribute to a more sustainable and resilient built environment. As the industry continues to evolve, the intersection of climate change and architecture becomes a focal point for innovation, pushing the boundaries of what is possible in the pursuit of a more sustainable future.</p>
     </div>
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="work.html" class="nav-link">Work</a>
+      <a href="research.html" class="nav-link active">Research &amp; Writing</a>
+      <a href="photography.html" class="nav-link">Photography</a>
+      <a href="./assets/images/my_resume.pdf" class="nav-link" target="_blank" rel="noopener">CV</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </div>
+  </nav>
 
+  <main>
+    <article class="article-page">
+
+      <a href="research.html" class="article-back">
+        <ion-icon name="arrow-back-outline" aria-hidden="true"></ion-icon>
+        Back to Research &amp; Writing
+      </a>
+
+      <header class="article-header">
+        <div class="article-eyebrow">
+          <span class="article-cat">Buildings &amp; Climate</span>
+          <span class="dot"></span>
+          <time datetime="2024-01-05">January 5, 2024</time>
+        </div>
+        <h1 class="article-main-title">Impact of Climate Change on Building Design and Performance</h1>
+        <p class="article-deck">How a changing climate is reshaping architecture — from sustainable materials and passive design to smart building systems, with a case study from Nepal.</p>
+        <div class="article-meta-bar">
+          <span><ion-icon name="person-outline" aria-hidden="true"></ion-icon> Suman Pathak</span>
+          <span><ion-icon name="time-outline" aria-hidden="true"></ion-icon> 6 min read</span>
+          <span><ion-icon name="pricetag-outline" aria-hidden="true"></ion-icon> Climate · Buildings · Sustainable Design</span>
+        </div>
+      </header>
+
+      <img src="./assets/images/climate.jpg" alt="Climate-resilient building with sustainable design features" class="article-hero-image" loading="lazy">
+
+      <div class="article-body">
+
+        <p>In an era of unprecedented climate challenges, the architectural and engineering landscape is undergoing a fundamental shift. Rising global temperatures, intensifying extreme weather events, and shifting precipitation patterns are no longer abstract future scenarios — they are design constraints that architects and engineers must account for today.</p>
+
+        <p>Buildings are both contributors to and victims of climate change. Globally, the built environment accounts for a significant share of energy consumption and CO₂ emissions. At the same time, buildings — their occupants, systems, and structures — are increasingly exposed to climate impacts. This creates both urgency and opportunity: the way we design, build, and retrofit the built environment is one of the most powerful levers available for climate action.</p>
+
+        <h2>The Core Challenge</h2>
+
+        <p>Climate change manifests for buildings in several ways:</p>
+        <ul>
+          <li><strong>Increased cooling demand</strong> as summer temperatures rise and heat waves become more frequent</li>
+          <li><strong>Structural risks</strong> from extreme precipitation, flooding, and wind events</li>
+          <li><strong>Thermal comfort degradation</strong> in buildings designed for historical climatic conditions that no longer apply</li>
+          <li><strong>Grid stress</strong> as simultaneous peak cooling demand strains electricity infrastructure</li>
+        </ul>
+
+        <p>Architects must now design not for today's climate, but for the climate of 2050 and beyond — a significant shift in how the design brief is framed.</p>
+
+        <h2>Sustainable Design Principles in Response</h2>
+
+        <p>To optimise building performance under changing conditions, the industry is increasingly turning to sustainable design principles:</p>
+
+        <ul>
+          <li><strong>Passive solar design:</strong> Orienting buildings to maximise or minimise solar gain depending on climate, using thermal mass to buffer temperature swings</li>
+          <li><strong>Natural ventilation:</strong> Designing for cross-ventilation and stack effect to reduce mechanical cooling loads</li>
+          <li><strong>Green roofs and walls:</strong> Reducing surface temperature, improving insulation, and managing stormwater</li>
+          <li><strong>High-performance envelopes:</strong> Advanced glazing, insulation, and air-sealing that dramatically reduce heating and cooling energy demand</li>
+        </ul>
+
+        <h2>Technological Innovations</h2>
+
+        <p>Advanced building materials are expanding the toolkit available to designers. High-performance insulation, phase-change materials, electrochromic glazing, and bio-based materials offer routes to dramatically lower operational energy use while also improving resilience to temperature extremes.</p>
+
+        <p>Smart building technologies — IoT sensors, building automation systems, and real-time data analytics — enable buildings to respond dynamically to weather conditions and grid signals, optimising energy use in real time rather than relying on fixed mechanical schedules.</p>
+
+        <h2>Case Study: Climate-Resilient Design in Nepal</h2>
+
+        <p>Nepal, situated in the Himalayan region, faces heightened climate risks: glacial lake outburst floods (GLOFs), erratic monsoon patterns, and increasing temperatures at high altitudes. In this context, climate-resilient building design is not a theoretical concern but a practical necessity.</p>
+
+        <p>One instructive example is the Green Village project in Dhading, Nepal — an eco-friendly settlement incorporating sustainable design principles suited to Nepal's specific environmental conditions:</p>
+
+        <ul>
+          <li><strong>Passive solar design:</strong> Building orientation and thermal mass to reduce heating demand in cold months</li>
+          <li><strong>Rainwater harvesting:</strong> Systems to manage water scarcity during dry seasons</li>
+          <li><strong>Earthquake-resistant construction:</strong> Use of locally sourced materials including bamboo and stabilised earth blocks, enhancing structural resilience</li>
+          <li><strong>Community involvement:</strong> Resident education on sustainable practices, waste management, and energy conservation</li>
+        </ul>
+
+        <p>This example highlights that effective climate-resilient design is inherently contextual — it draws on local materials, local hazards, and local community knowledge, not generic international templates.</p>
+
+        <h2>Regulatory Evolution</h2>
+
+        <p>Governments and municipalities are increasingly adopting building codes and energy performance standards that mandate sustainable and resilient design. The EU's Energy Performance of Buildings Directive (EPBD) and Germany's building energy law (Gebäudeenergiegesetz, GEG) are examples of how regulation is driving a systemic shift in how buildings are designed and renovated.</p>
+
+        <p>For architects and engineers, understanding and working within — and ahead of — this evolving regulatory landscape is no longer optional. It is a core professional competency.</p>
+
+        <h2>Conclusion</h2>
+
+        <p>The relationship between climate change and building design is reshaping the entire construction industry. Embracing passive design, leveraging advanced materials, integrating smart technologies, and designing for the climate of the next 30 years rather than the last 30 are all essential shifts.</p>
+
+        <p>As the industry continues to evolve, buildings offer one of the most direct and scalable pathways to both climate mitigation and adaptation — if they are designed with that dual ambition clearly in view.</p>
+
+      </div>
+
+      <nav class="article-footer-nav" aria-label="Article navigation">
+        <a href="research.html" class="article-footer-link">
+          <ion-icon name="arrow-back-outline" aria-hidden="true"></ion-icon> All Articles
+        </a>
+        <a href="passive_cooling.html" class="article-footer-link">
+          Passive Cooling Strategies <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+        </a>
+      </nav>
+
+    </article>
   </main>
 
-</body>
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-brand-icon" aria-hidden="true">SP</div>
+        <div class="footer-brand-text">
+          <span class="footer-brand-name">Suman Pathak</span>
+          <span class="footer-brand-role">Energy Systems Engineer · Freiburg, Germany</span>
+        </div>
+      </div>
+      <ul class="footer-socials" role="list">
+        <li><a href="https://www.linkedin.com/in/sumanpathak1" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+        <li><a href="https://www.researchgate.net/profile/Suman-Pathak" target="_blank" rel="noopener" class="social-link" aria-label="ResearchGate"><ion-icon name="book-outline"></ion-icon></a></li>
+        <li><a href="https://www.instagram.com/mrpathak10_/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
+      </ul>
+      <div class="footer-contact">
+        <a href="mailto:sumanpathak.sp143@gmail.com"><ion-icon name="mail-outline" aria-hidden="true"></ion-icon> sumanpathak.sp143@gmail.com</a>
+      </div>
+      <p class="footer-copyright">&copy; <span id="footerYear"></span> Suman Pathak. All rights reserved.</p>
+    </div>
+  </footer>
 
+  <script src="./assets/js/script.js"></script>
+  <script>
+    const fy = document.getElementById('footerYear');
+    if (fy) fy.textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Suman Pathak — Energy Systems Engineer</title>
+  <meta name="description" content="Suman Pathak is a Mechanical and Energy Systems Engineer based in Freiburg, Germany. Currently pursuing an M.Sc. in Sustainable Systems Engineering at the University of Freiburg and working at INATECH on district heating systems.">
+  <link rel="canonical" href="https://sumanpathak.com.np/about.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://sumanpathak.com.np/about.html">
+  <meta property="og:title" content="About Suman Pathak — Energy Systems Engineer">
+  <meta property="og:description" content="From mechanical engineering in Nepal to energy systems research in Freiburg. The career journey of Suman Pathak.">
+  <meta property="og:image" content="https://sumanpathak.com.np/assets/images/my-avatar.png">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <style>
+    .about-page-hero {
+      padding-top: calc(var(--nav-height) + 64px);
+      padding-bottom: 24px;
+    }
+    .about-lead {
+      font-family: var(--font-heading);
+      font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+      color: var(--text-primary);
+      line-height: 1.55;
+      font-weight: 400;
+      font-style: italic;
+      max-width: 700px;
+      margin-top: 20px;
+    }
+    .about-narrative p {
+      font-size: 1.01rem;
+      color: var(--text-secondary);
+      line-height: 1.82;
+      margin-bottom: 1.4rem;
+      max-width: 700px;
+    }
+    .about-narrative p strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    .trajectory-list {
+      margin: 32px 0;
+      max-width: 620px;
+    }
+    .trajectory-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+    .trajectory-item:last-child {
+      border-bottom: none;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    .trajectory-item ion-icon {
+      color: var(--accent);
+      font-size: 1.05rem;
+      flex-shrink: 0;
+    }
+    .beyond-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 32px;
+    }
+    .beyond-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      transition: border-color 0.3s var(--ease-out);
+    }
+    .beyond-card:hover {
+      border-color: var(--border-accent);
+    }
+    .beyond-card-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .beyond-card p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin: 0;
+    }
+    @media (max-width: 768px) {
+      .beyond-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <nav class="top-nav" id="topNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="Suman Pathak — Home">
+        <div class="nav-brand-icon" aria-hidden="true">SP</div>
+        <span class="nav-brand-name">Suman Pathak</span>
+      </a>
+      <div class="nav-actions">
+        <ul class="nav-links" id="navLinks" role="list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link active" aria-current="page">About</a></li>
+          <li><a href="work.html" class="nav-link">Work</a></li>
+          <li><a href="research.html" class="nav-link">Research &amp; Writing</a></li>
+          <li><a href="photography.html" class="nav-link">Photography</a></li>
+          <li><a href="./assets/images/my_resume.pdf" class="nav-link" target="_blank" rel="noopener">CV</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme">
+          <ion-icon name="sunny-outline" class="icon-sun"></ion-icon>
+          <ion-icon name="moon-outline" class="icon-moon"></ion-icon>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link active">About</a>
+      <a href="work.html" class="nav-link">Work</a>
+      <a href="research.html" class="nav-link">Research &amp; Writing</a>
+      <a href="photography.html" class="nav-link">Photography</a>
+      <a href="./assets/images/my_resume.pdf" class="nav-link" target="_blank" rel="noopener">CV</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </div>
+  </nav>
+
+  <main class="main-content">
+
+    <!-- HERO -->
+    <section class="section about-page-hero">
+      <div class="reveal">
+        <span class="section-eyebrow">About</span>
+        <h1 class="h2" style="font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; margin-top: 8px;">A bit about me</h1>
+      </div>
+      <p class="about-lead reveal">
+        Mechanical engineer turned energy systems researcher — tracing a path from thermal systems in Nepal to district heating networks in Germany.
+      </p>
+    </section>
+
+    <div class="section-divider"><hr></div>
+
+    <!-- CAREER NARRATIVE -->
+    <section class="section" aria-labelledby="career-heading">
+      <div class="reveal">
+        <span class="section-eyebrow">Career Path</span>
+        <h2 class="h2" id="career-heading">From Mechanical Engineering to Energy Systems</h2>
+      </div>
+
+      <div class="about-narrative" style="margin-top: 28px;">
+        <p class="reveal">
+          I started in mechanical engineering at Kathmandu University, where I built my foundation in thermodynamics, fluid mechanics, structural analysis, and computer-aided design. During that time I worked on projects ranging from FEA of structural components to the design of refrigeration systems — the kind of work that gives you a visceral sense of how energy moves through physical systems.
+        </p>
+        <p class="reveal">
+          An HVAC engineering internship at <strong>Himal Refrigeration and Electrical Industries</strong> in 2023 brought that theoretical grounding into the field. Designing, installing, and maintaining HVAC systems taught me that energy efficiency is not just a design parameter on a spreadsheet — it is something you see and feel in a real building, in a real climate.
+        </p>
+        <p class="reveal">
+          That experience pointed me clearly toward the energy systems space. I moved to Freiburg in 2024 to pursue an <strong>M.Sc. in Sustainable Systems Engineering</strong> at the University of Freiburg, where my focus has shifted toward building energy performance, thermal networks, and the intersection of renewable energy and heat supply.
+        </p>
+        <p class="reveal">
+          Since February 2025, I have been working as a <strong>Student Assistant at INATECH</strong> (Institute for Renewable Energy Technology), where I monitor and evaluate energy performance in district heating systems using Python. My M.Sc. research is examining how heat-pump emissions change under variable grid CO₂ intensities across Germany — incorporating the effects of photovoltaics and combined heat and power systems.
+        </p>
+        <p class="reveal">
+          The thread running through all of this is the same: I am interested in how energy systems actually work in practice, and how to make them work better.
+        </p>
+      </div>
+
+      <div class="trajectory-list reveal">
+        <div class="trajectory-item">
+          <ion-icon name="school-outline" aria-hidden="true"></ion-icon>
+          B.E. Mechanical Engineering — Kathmandu University (2018–2023)
+        </div>
+        <div class="trajectory-item">
+          <ion-icon name="arrow-down-outline" aria-hidden="true"></ion-icon>
+          HVAC Engineer Intern — Himal Refrigeration &amp; Electrical Industries (2023)
+        </div>
+        <div class="trajectory-item">
+          <ion-icon name="arrow-down-outline" aria-hidden="true"></ion-icon>
+          M.Sc. Sustainable Systems Engineering — University of Freiburg (2024–Present)
+        </div>
+        <div class="trajectory-item">
+          <ion-icon name="arrow-down-outline" aria-hidden="true"></ion-icon>
+          Student Assistant: District Heating &amp; Building Energy — INATECH (2025–Present)
+        </div>
+        <div class="trajectory-item">
+          <ion-icon name="flash-outline" aria-hidden="true"></ion-icon>
+          Energy Systems Engineer &amp; Researcher — Now
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"><hr></div>
+
+    <!-- CURRENTLY WORKING ON -->
+    <section class="section" aria-labelledby="current-heading">
+      <div class="reveal">
+        <span class="section-eyebrow">Right Now</span>
+        <h2 class="h2" id="current-heading">What I'm Working On</h2>
+      </div>
+      <div class="currently-grid" style="margin-top: 28px;">
+        <div class="currently-card reveal reveal-delay-1">
+          <span class="currently-card-label">Student Assistant · INATECH, Freiburg</span>
+          <p>Monitoring and evaluating energy consumption and system efficiency in district heating networks. Using Python for data processing, performance benchmarking, and building energy analysis across the network.</p>
+        </div>
+        <div class="currently-card reveal reveal-delay-2">
+          <span class="currently-card-label">M.Sc. Research · Sustainable Systems Engineering</span>
+          <p>Studying heat-pump emissions under variable grid CO₂ intensities in Germany, with a regional analysis incorporating photovoltaics (PV) and combined heat and power (CHP). Supervised at the University of Freiburg.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"><hr></div>
+
+    <!-- BEYOND ENGINEERING -->
+    <section class="section" aria-labelledby="beyond-heading">
+      <div class="reveal">
+        <span class="section-eyebrow">Outside the Lab</span>
+        <h2 class="h2" id="beyond-heading">Beyond Engineering</h2>
+      </div>
+      <p class="about-text reveal" style="max-width: 680px; margin-top: 16px;">
+        Engineering is how I think about problems. Photography and writing are how I process the world around me.
+      </p>
+      <div class="beyond-grid">
+        <div class="beyond-card reveal reveal-delay-1">
+          <span class="beyond-card-label">Photography</span>
+          <p>I photograph landscapes, cities, and moments that catch my attention — mostly on the move. Living between Nepal and Germany has given me two very different visual vocabularies to draw from. My <a href="photography.html" style="color:var(--accent);">photography gallery</a> is a growing archive of that.</p>
+        </div>
+        <div class="beyond-card reveal reveal-delay-2">
+          <span class="beyond-card-label">Writing</span>
+          <p>Writing is part of how I think. I write about energy policy, buildings, technology, and other topics that interest me. The <a href="hydropower-illusion.html" style="color:var(--accent);">Hydropower Illusion</a> — an investigative look at Nepal's energy sovereignty — is my most substantial piece so far.</p>
+        </div>
+        <div class="beyond-card reveal reveal-delay-3">
+          <span class="beyond-card-label">Nepal &amp; ROE Network</span>
+          <p>I co-founded the ROE Network in Nepal in 2018 — an educational community aimed at supporting academic and professional development. It ran for nearly seven years and shaped how I think about knowledge-sharing and community building.</p>
+        </div>
+        <div class="beyond-card reveal">
+          <span class="beyond-card-label">Energy Policy</span>
+          <p>I am particularly interested in the politics and economics of energy transitions — how policy shapes the adoption of heat pumps, district heating, and building renovation, and where systems thinking can change outcomes at scale.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"><hr></div>
+
+    <!-- WORKED WITH -->
+    <section class="section clients-section" aria-labelledby="worked-heading">
+      <div class="reveal">
+        <span class="section-eyebrow">Affiliations</span>
+        <h2 class="h2" id="worked-heading">Worked With</h2>
+      </div>
+      <ul class="clients-list reveal" style="margin-top: 32px;">
+        <li class="clients-item">
+          <a href="https://www.facebook.com/roeinfo/" target="_blank" rel="noopener" aria-label="ROE Network">
+            <img src="./assets/images/roe.png" alt="ROE Network" loading="lazy">
+          </a>
+        </li>
+        <li class="clients-item">
+          <a href="http://himalref.com.np/index.php" target="_blank" rel="noopener" aria-label="Himal Refrigeration">
+            <img src="./assets/images/himal.png" alt="Himal Refrigeration and Electrical Industries" loading="lazy">
+          </a>
+        </li>
+        <li class="clients-item">
+          <a href="http://ard.org.np" target="_blank" rel="noopener" aria-label="ARD">
+            <img src="./assets/images/ard.jpg" alt="ARD Nepal" loading="lazy">
+          </a>
+        </li>
+        <li class="clients-item">
+          <a href="https://ames.ku.edu.np/junkiri/" target="_blank" rel="noopener" aria-label="Junkiri">
+            <img src="./assets/images/junkiri.png" alt="Junkiri — Kathmandu University" loading="lazy">
+          </a>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-brand-icon" aria-hidden="true">SP</div>
+        <div class="footer-brand-text">
+          <span class="footer-brand-name">Suman Pathak</span>
+          <span class="footer-brand-role">Energy Systems Engineer · Freiburg, Germany</span>
+        </div>
+      </div>
+      <ul class="footer-socials" role="list">
+        <li><a href="https://www.linkedin.com/in/sumanpathak1" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+        <li><a href="https://www.researchgate.net/profile/Suman-Pathak" target="_blank" rel="noopener" class="social-link" aria-label="ResearchGate"><ion-icon name="book-outline"></ion-icon></a></li>
+        <li><a href="https://www.instagram.com/mrpathak10_/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
+      </ul>
+      <div class="footer-contact">
+        <a href="mailto:sumanpathak.sp143@gmail.com"><ion-icon name="mail-outline" aria-hidden="true"></ion-icon> sumanpathak.sp143@gmail.com</a>
+      </div>
+      <p class="footer-copyright">&copy; <span id="footerYear"></span> Suman Pathak. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="./assets/js/script.js"></script>
+  <script>
+    const fy = document.getElementById('footerYear');
+    if (fy) fy.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

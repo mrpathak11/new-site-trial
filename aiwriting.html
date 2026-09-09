@@ -1,135 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>AI Writing: A Blessing or a Curse?</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-    }
-    
-    header {
-      background-color: #333;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-      background-color: white;
-      padding: 20px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      border-radius: 5px;
-    }
-    
-    .blog-content {
-      margin-top: 20px;
-    }
-    
-    .blog-category {
-      background-color: #4CAF50;
-      color: white;
-      padding: 5px;
-      border-radius: 5px;
-      display: inline-block;
-      margin: 0;
-    }
-    
-    .blog-meta {
-      margin: 10px 0;
-      font-size: 0.8em;
-    }
-    
-    .blog-text {
-      line-height: 1.5;
-    }
+  <title>AI Writing: A Blessing or a Curse? | Suman Pathak</title>
+  <meta name="description" content="AI writing tools can enhance productivity and creativity — but uncritical use risks eroding writing skills, authenticity, and research integrity. An opinion piece by Suman Pathak.">
+  <link rel="canonical" href="https://sumanpathak.com.np/aiwriting.html">
 
-    .blog-banner-box {
-  text-align: center;
-    }   
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sumanpathak.com.np/aiwriting.html">
+  <meta property="og:title" content="AI Writing: A Blessing or a Curse?">
+  <meta property="og:description" content="AI writing tools can enhance productivity and creativity — but uncritical use risks eroding writing skills, authenticity, and research integrity.">
+  <meta property="og:image" content="https://sumanpathak.com.np/assets/images/aiwriting.png">
 
-    .blog-banner-box img {
-      width: 50%;
-    }
-#readCountContainer {
-    background-color: #e0f7e0; /* Mild green color */
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
 
-  #readCount {
-    margin: 0;
-  }
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-  #count {
-    font-weight: bold;
-  }
+  <!-- CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/article.css">
 
-  </style>
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
 
 <body>
 
-  <header>
-    <h1>AI Writing: A Blessing or a Curse?</h1>
-  </header>
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <nav class="top-nav" id="topNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="Suman Pathak — Home">
+        <div class="nav-brand-icon" aria-hidden="true">SP</div>
+        <span class="nav-brand-name">Suman Pathak</span>
+      </a>
+      <div class="nav-actions">
+        <ul class="nav-links" id="navLinks" role="list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="work.html" class="nav-link">Work</a></li>
+          <li><a href="research.html" class="nav-link active" aria-current="page">Research &amp; Writing</a></li>
+          <li><a href="photography.html" class="nav-link">Photography</a></li>
+          <li><a href="./assets/images/my_resume.pdf" class="nav-link" target="_blank" rel="noopener">CV</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme">
+          <ion-icon name="sunny-outline" class="icon-sun"></ion-icon>
+          <ion-icon name="moon-outline" class="icon-moon"></ion-icon>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="work.html" class="nav-link">Work</a>
+      <a href="research.html" class="nav-link active">Research &amp; Writing</a>
+      <a href="photography.html" class="nav-link">Photography</a>
+      <a href="./assets/images/my_resume.pdf" class="nav-link" target="_blank" rel="noopener">CV</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </div>
+  </nav>
 
   <main>
-    <figure class="blog-banner-box">
-      <img src="./assets/images/aiwriting.png" alt="AI Writing: A Blessing or a Curse?" loading="lazy">
-    </figure>
+    <article class="article-page">
 
-    <div class="blog-content" style="text-align: justify;">
-    <div class="blog-meta">
-        <p class="blog-category">AI</p>
-        <span class="dot"></span>
-        <time datetime="2023-11-28">Nov 28, 2023</time>
-    </div>
-    <p class="blog-text">
-        Artificial intelligence (AI) writing is the process of using AI tools to create written content. These tools can perform tasks such as grammar and spell-checking, generating topic ideas, and even offering suggestions for improvements in style and structure. Some examples of AI writing tools are ChatGPT, MS Bing, and Google Bard.
+      <a href="research.html" class="article-back">
+        <ion-icon name="arrow-back-outline" aria-hidden="true"></ion-icon>
+        Back to Research &amp; Writing
+      </a>
 
-        AI writing tools can be useful for writers of all skill levels, as they can help them improve the quality and accuracy of their work. They can also save time and effort, as they can automate some of the tedious and repetitive aspects of writing. Moreover, they can inspire creativity and innovation, as they can generate new and original content based on the writer’s input.
-    </p>
-    <p class="blog-text">
-        However, AI writing tools also have some drawbacks and risks, as they can make people dumb and lazy. Some of the negative effects of AI writing tools are:
+      <header class="article-header">
+        <div class="article-eyebrow">
+          <span class="article-cat">Technology</span>
+          <span class="dot"></span>
+          <time datetime="2023-11-28">November 28, 2023</time>
+        </div>
+        <h1 class="article-main-title">AI Writing: A Blessing or a Curse?</h1>
+        <p class="article-deck">AI writing tools can enhance productivity and creativity — but uncritical use risks eroding writing skills, authenticity, and research integrity.</p>
+        <div class="article-meta-bar">
+          <span><ion-icon name="person-outline" aria-hidden="true"></ion-icon> Suman Pathak</span>
+          <span><ion-icon name="time-outline" aria-hidden="true"></ion-icon> 4 min read</span>
+          <span><ion-icon name="pricetag-outline" aria-hidden="true"></ion-icon> AI · Writing · Research</span>
+        </div>
+      </header>
 
+      <img src="./assets/images/aiwriting.png" alt="Abstract representation of AI writing assistance" class="article-hero-image" loading="lazy">
+
+      <div class="article-body">
+
+        <p>Artificial intelligence writing tools have moved from novelty to routine in a remarkably short span of time. Tools like ChatGPT, Microsoft Copilot, and Google Gemini can now draft prose, suggest arguments, summarise documents, and correct grammar — tasks that once required significant human time and skill.</p>
+
+        <p>The question is not whether these tools are useful. They clearly are. The question is: <em>what do we lose when we use them without care?</em></p>
+
+        <h2>What AI Writing Tools Do Well</h2>
+
+        <p>AI writing tools excel at reducing friction. For writers of all skill levels, they can:</p>
         <ul>
-            <li>They can reduce the need and motivation for learning and developing writing skills, as people may rely too heavily on automated suggestions and corrections, and fail to practice and improve their own writing abilities.</li>
-            <li>They can undermine the authenticity and originality of writing, as people may copy or paraphrase the content generated by AI tools, and fail to express their own voice and perspective.</li>
-            <li>They can increase the risk of plagiarism and ethical issues, as people may use the content generated by AI tools without proper attribution or acknowledgment, and violate the intellectual property rights and academic integrity of the original sources.</li>
-            <li>They can compromise the quality and reliability of writing, as AI tools may not always produce accurate, relevant, and coherent content, and may introduce errors, biases, or inconsistencies that may mislead or confuse the readers.</li>
+          <li>Identify grammatical errors and awkward phrasing</li>
+          <li>Generate topic ideas and structural outlines</li>
+          <li>Suggest improvements in clarity or concision</li>
+          <li>Accelerate routine documentation and correspondence</li>
         </ul>
-    </p>
-    <p class="blog-text">
-        AI writing tools can also have significant implications for the research sector, as they can assist or replace researchers in various tasks, such as literature review, data analysis, hypothesis generation, and paper writing. Some researchers may use AI writing tools to enhance their productivity and creativity, as they can access and synthesize large amounts of information, discover new patterns and insights, and communicate their findings more effectively. However, some researchers may also abuse or misuse AI writing tools, as they can produce low-quality or fraudulent research, overlook important details or limitations, and violate ethical or professional standards. Therefore, it is crucial for researchers to use AI writing tools ethically and critically, and to maintain their own expertise and judgment in conducting and evaluating research.
-    </p>
-    <p class="blog-text">
-        Therefore, it is important for writers to use AI writing tools responsibly and not rely on them as a substitute for developing their own writing abilities. By balancing the use of AI writing tools with more traditional methods of writing instruction, writers can make the most of these resources to enhance their writing ability and produce high-quality work.
-    </p>
-    <div id="readCountContainer">
-        <p id="readCount">Read Count: <span id="count">0</span></p>
+
+        <p>In engineering and research contexts specifically, this can be genuinely valuable. Translating technical results into accessible language, or iterating quickly on report structures, are tasks where AI assistance can save hours without compromising intellectual rigour — <em>if used as a tool, not a replacement</em>.</p>
+
+        <h2>The Risks: What We Stand to Lose</h2>
+
+        <p>The risks are real and worth taking seriously.</p>
+
+        <p><strong>Skill atrophy.</strong> Writing is a cognitive exercise. The more we offload it to automated tools, the less we practice the fundamental skill of constructing and communicating an argument. Relying on AI to generate prose, rather than improve it, weakens the very capacity it appears to augment.</p>
+
+        <p><strong>Loss of voice.</strong> Good writing has a distinctive voice — a way of framing observations that reflects how a person actually thinks. AI-generated text tends toward the smooth and generic. The more it is used without critical editing, the more writing converges on a homogenised, recognisably artificial style.</p>
+
+        <p><strong>Plagiarism and attribution.</strong> When AI generates content based on training data, the provenance of ideas becomes murky. Using AI-produced text without disclosure raises genuine ethical and academic integrity concerns, particularly in research contexts.</p>
+
+        <p><strong>Accuracy and reliability.</strong> AI language models can produce confident-sounding errors. In technical fields — energy engineering, policy analysis, scientific writing — an unchecked AI hallucination embedded in a report or paper can be misleading or actively harmful.</p>
+
+        <h2>AI in Research: Particular Care Required</h2>
+
+        <p>The research sector deserves particular attention. AI writing tools can assist with literature review, synthesis, and drafting. But they can also be misused — to produce low-quality or fraudulent research outputs, obscure limitations, or replace the hard intellectual work of actually understanding a problem.</p>
+
+        <p>The most appropriate use of AI in research is as an editorial assistant, not as a co-author. The thinking, the judgement, the interpretation — these must remain the researcher's own.</p>
+
+        <h2>Using These Tools Responsibly</h2>
+
+        <p>The most useful framing is not "AI writing versus human writing" but "AI-assisted writing with maintained critical control." That means:</p>
+        <ul>
+          <li>Using AI to draft, but always editing heavily for accuracy, voice, and clarity</li>
+          <li>Verifying factual claims independently, especially in technical content</li>
+          <li>Being transparent about AI use when disclosure is appropriate</li>
+          <li>Continuing to practise writing without AI assistance regularly</li>
+        </ul>
+
+        <p>AI writing tools are likely here to stay. The question is not whether to use them, but how to use them in ways that genuinely augment capability rather than quietly erode it.</p>
+
+      </div>
+
+      <nav class="article-footer-nav" aria-label="Article navigation">
+        <a href="research.html" class="article-footer-link">
+          <ion-icon name="arrow-back-outline" aria-hidden="true"></ion-icon> All Articles
+        </a>
+        <a href="passive_cooling.html" class="article-footer-link">
+          Passive Cooling Strategies <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+        </a>
+      </nav>
+
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-brand-icon" aria-hidden="true">SP</div>
+        <div class="footer-brand-text">
+          <span class="footer-brand-name">Suman Pathak</span>
+          <span class="footer-brand-role">Energy Systems Engineer · Freiburg, Germany</span>
+        </div>
+      </div>
+      <ul class="footer-socials" role="list">
+        <li><a href="https://www.linkedin.com/in/sumanpathak1" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+        <li><a href="https://www.researchgate.net/profile/Suman-Pathak" target="_blank" rel="noopener" class="social-link" aria-label="ResearchGate"><ion-icon name="book-outline"></ion-icon></a></li>
+        <li><a href="https://www.instagram.com/mrpathak10_/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
+      </ul>
+      <div class="footer-contact">
+        <a href="mailto:sumanpathak.sp143@gmail.com"><ion-icon name="mail-outline" aria-hidden="true"></ion-icon> sumanpathak.sp143@gmail.com</a>
+      </div>
+      <p class="footer-copyright">&copy; <span id="footerYear"></span> Suman Pathak. All rights reserved.</p>
     </div>
-</div>
+  </footer>
 
-<script>
-    // JavaScript for read count
-    let count = localStorage.getItem('count') || 0;
-
-    // Increment count on each page load
-    count++;
-    localStorage.setItem('count', count);
-
-    // Display the count in the HTML
-    document.getElementById('count').textContent = 254;
-</script>
-
+  <script src="./assets/js/script.js"></script>
+  <script>
+    const fy = document.getElementById('footerYear');
+    if (fy) fy.textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

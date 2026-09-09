@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Hydropower Illusion | Suman Pathak</title>
+  <title>The Hydropower Illusion: Nepal's Energy Sovereignty | Suman Pathak</title>
   <meta name="description"
     content="Assessing Nepal's Energy Sovereignty, the Indian Strategic Gambit, and the Data Center Alternative. An investigative analysis by Suman Pathak." />
+  <link rel="canonical" href="https://sumanpathak.com.np/hydropower-illusion.html" />
 
   <!-- ── Open Graph (Facebook, LinkedIn, WhatsApp) ── -->
   <meta property="og:type" content="article" />
@@ -403,56 +404,57 @@
   <!-- Reading progress -->
   <div id="progress-bar"></div>
 
-  <div class="app-container">
+  <div class="particles" id="particles" aria-hidden="true"></div>
 
-    <!-- ── Sidebar ── -->
-    <aside class="sidebar">
-      <div class="sidebar-header">
-        <div class="avatar-container">
-          <a href="index.html"><img src="./assets/images/my-avatar.png" alt="Suman Pathak" class="avatar"></a>
-        </div>
-        <h1 class="name"><a href="index.html">Suman Pathak</a></h1>
-        <p class="title">Mechanical Engineer<br>Energy Enthusiast</p>
-      </div>
-
-      <nav class="navbar">
-        <ul class="nav-list">
-          <li><a href="index.html#about" class="nav-link">About</a></li>
-          <li><a href="index.html#resume" class="nav-link">Resume</a></li>
-          <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
-          <li><a href="index.html#blog" class="nav-link active">Blog</a></li>
+  <!-- NAVIGATION -->
+  <nav class="top-nav" id="topNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="Suman Pathak — Home">
+        <div class="nav-brand-icon" aria-hidden="true">SP</div>
+        <span class="nav-brand-name">Suman Pathak</span>
+      </a>
+      <div class="nav-actions">
+        <ul class="nav-links" id="navLinks" role="list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="work.html" class="nav-link">Work</a></li>
+          <li><a href="research.html" class="nav-link active" aria-current="page">Research &amp; Writing</a></li>
+          <li><a href="photography.html" class="nav-link">Photography</a></li>
+          <li><a href="./assets/images/my_resume.pdf" class="nav-link" target="_blank" rel="noopener">CV</a></li>
           <li><a href="index.html#contact" class="nav-link">Contact</a></li>
         </ul>
-      </nav>
-
-      <div class="sidebar-footer">
-        <ul class="social-list">
-          <li><a href="https://www.linkedin.com/in/sumanpathak1" target="_blank" class="social-link"><ion-icon
-                name="logo-linkedin"></ion-icon></a></li>
-          <li><a href="https://www.researchgate.net/profile/Suman-Pathak" target="_blank" class="social-link"><ion-icon
-                name="book-outline"></ion-icon></a></li>
-          <li><a href="https://www.facebook.com/mrpathak11/" target="_blank" class="social-link"><ion-icon
-                name="logo-facebook"></ion-icon></a></li>
-          <li><a href="https://www.instagram.com/mrpathak10_/" target="_blank" class="social-link"><ion-icon
-                name="logo-instagram"></ion-icon></a></li>
-        </ul>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme">
+          <ion-icon name="sunny-outline" class="icon-sun"></ion-icon>
+          <ion-icon name="moon-outline" class="icon-moon"></ion-icon>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-    </aside>
+    </div>
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="work.html" class="nav-link">Work</a>
+      <a href="research.html" class="nav-link active">Research &amp; Writing</a>
+      <a href="photography.html" class="nav-link">Photography</a>
+      <a href="./assets/images/my_resume.pdf" class="nav-link" target="_blank" rel="noopener">CV</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </div>
+  </nav>
 
     <!-- ── Main Content ── -->
     <main class="main-content">
-      <section class="section active" style="opacity:1; transform:none;">
+      <section class="section active" style="opacity:1; transform:none; padding-top: var(--nav-height);">
 
-        <header class="section-header">
-          <h2 class="h2">Blog Post</h2>
-          <a href="index.html#blog" class="btn-download" style="padding:5px 15px; font-size:0.8rem;">← Back to Blog</a>
-        </header>
+        <div class="section-content" style="max-width:820px; margin:0 auto; padding: 40px 20px 80px;">
 
-        <div class="section-content" style="max-width:820px; margin:0 auto;">
+          <a href="research.html" style="display:inline-flex;align-items:center;gap:8px;font-size:0.84rem;font-weight:500;color:var(--text-secondary);text-decoration:none;margin-bottom:40px;transition:color 0.25s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            Back to Research &amp; Writing
+          </a>
 
           <!-- ── HERO IMAGE ── -->
-          <!-- 📁 Save this image as: assets/images/hydropower-hero.jpg -->
-          <!-- 🔗 Download from: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Upper_Tamakoshi_Hydropower_Project.jpg/1280px-Upper_Tamakoshi_Hydropower_Project.jpg -->
           <img src="./assets/images/hydropower-hero.jpg" alt="Nepal Hydropower — Upper Tamakoshi Project"
             class="hero-banner" />
 
@@ -1164,7 +1166,28 @@
           </div><!-- end section-content -->
       </section>
     </main>
-  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-brand-icon" aria-hidden="true">SP</div>
+        <div class="footer-brand-text">
+          <span class="footer-brand-name">Suman Pathak</span>
+          <span class="footer-brand-role">Energy Systems Engineer · Freiburg, Germany</span>
+        </div>
+      </div>
+      <ul class="footer-socials" role="list">
+        <li><a href="https://www.linkedin.com/in/sumanpathak1" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+        <li><a href="https://www.researchgate.net/profile/Suman-Pathak" target="_blank" rel="noopener" class="social-link" aria-label="ResearchGate"><ion-icon name="book-outline"></ion-icon></a></li>
+        <li><a href="https://www.instagram.com/mrpathak10_/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
+      </ul>
+      <div class="footer-contact">
+        <a href="mailto:sumanpathak.sp143@gmail.com"><ion-icon name="mail-outline" aria-hidden="true"></ion-icon> sumanpathak.sp143@gmail.com</a>
+      </div>
+      <p class="footer-copyright">&copy; <span id="footerYear"></span> Suman Pathak. All rights reserved.</p>
+    </div>
+  </footer>
 
   <!-- Site JS -->
   <script src="./assets/js/script.js"></script>
@@ -1177,7 +1200,9 @@
       const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
       document.getElementById('progress-bar').style.width = progress + '%';
     });
+    const fy = document.getElementById('footerYear');
+    if (fy) fy.textContent = new Date().getFullYear();
   </script>
 </body>
 
-</html>
+</html>
