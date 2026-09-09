@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 update_rg_stats.py â€” Scrape ResearchGate stats and update the website HTML files.
 
@@ -161,17 +161,19 @@ def patch_file(filepath: Path, stats: dict) -> bool:
 
 
 # â”€â”€ Manual Override â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-def manual_update(reads: str, ris: str, recommendations: str):
+def manual_update(reads: str, ris: str, recommendations: str, citations: str = ""):
     """
     Use this if the scraper fails (RG is JS-heavy and may block bots).
     Just fill in the values yourself from the RG stats page and call:
-        python update_rg_stats.py manual "42,500+" "61.2" "4"
+        python update_rg_stats.py manual "64,666" "88.0" "4" "1"
     """
     stats = {
         "reads": reads,
         "ris": ris,
         "recommendations": recommendations,
     }
+    if citations:
+        stats["citations"] = citations
     print(f"Manual update: {stats}")
     for filename in TARGET_FILES:
         filepath = SITE_ROOT / filename
@@ -221,5 +223,10 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) >= 5 and sys.argv[1] == "manual":
+        # Usage: python update_rg_stats.py manual "64,666" "88.0" "4" "1"
+        citations = sys.argv[5] if len(sys.argv) >= 6 else ""
+        manual_update(sys.argv[2], sys.argv[3], sys.argv[4], citations)
+    else:
+        main()
 
