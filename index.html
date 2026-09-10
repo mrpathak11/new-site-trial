@@ -134,6 +134,17 @@
           <img src="./assets/images/my-avatar.png" alt="Suman Pathak, Energy Systems Engineer" class="hero-avatar" width="180" height="180">
         </div>
         <div class="hero-text">
+          <div class="hero-meta-strip">
+            <span class="hero-status-pill">
+              <span class="pulse-indicator"></span>
+              Student Assistant @ INATECH
+            </span>
+            <span class="hero-meta-divider"></span>
+            <span class="hero-meta-item">Freiburg, Germany (47.99° N, 7.84° E)</span>
+            <span class="hero-meta-divider"></span>
+            <span class="hero-meta-item">64k+ ResearchGate Reads</span>
+          </div>
+
           <span class="hero-role">Energy Systems Engineer</span>
           <h1 class="hero-name" id="hero-name">Suman Pathak</h1>
           <span class="hero-tagline-spec">Building Energy &nbsp;·&nbsp; Heat Pumps &nbsp;·&nbsp; District Heating &nbsp;·&nbsp; Energy Modelling</span>
@@ -147,10 +158,13 @@
             <a href="./assets/images/my_resume.pdf" class="btn-secondary" target="_blank" rel="noopener" download>
               Download CV <ion-icon name="download-outline" aria-hidden="true"></ion-icon>
             </a>
+            <button type="button" class="btn-copy-email" onclick="copyEmailToClipboard('sumanpathak.sp143@gmail.com')">
+              <ion-icon name="copy-outline" aria-hidden="true"></ion-icon> Copy Email
+            </button>
           </div>
           <span class="hero-location">
             <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-            Freiburg, Germany
+            Freiburg im Breisgau, Baden-Württemberg, Germany
           </span>
         </div>
       </div>
@@ -181,72 +195,114 @@
 
     <div class="section-divider"><hr></div>
 
-    <!-- Selected Work -->
+    <!-- Selected Work: Bento Showcase -->
     <section id="work" class="section" aria-labelledby="work-heading">
       <div class="reveal">
-        <span class="section-eyebrow">Selected Work</span>
-        <h2 class="h2" id="work-heading">Projects &amp; Research</h2>
+        <span class="section-eyebrow">Portfolio</span>
+        <h2 class="h2" id="work-heading">Selected Projects &amp; Research</h2>
       </div>
 
-      <div class="featured-projects-grid">
+      <div class="bento-grid">
 
-        <div class="fp-card reveal reveal-delay-1">
-          <span class="fp-number" aria-hidden="true">01</span>
-          <span class="fp-category">Energy Systems</span>
-          <h3 class="fp-title">District Heating Performance Analysis</h3>
-          <p class="fp-desc">Monitoring and evaluating energy consumption and system efficiency in district heating networks at INATECH. Data-driven assessment of thermal performance using Python-based analysis pipelines.</p>
+        <!-- 01: District Heating (Hero Bento Card) -->
+        <div class="bento-card bento-featured reveal reveal-delay-1">
+          <div class="bento-top">
+            <span class="bento-tag-badge">Energy Systems &bull; INATECH</span>
+            <span class="bento-badge-live"><span class="pulse-indicator" style="width:6px; height:6px;"></span> Active Project</span>
+          </div>
+          <h3 class="bento-title">District Heating Performance Analysis</h3>
+          <p class="bento-desc">
+            Monitoring and evaluating thermal performance and energy consumption in district heating systems. Developing Python-based data cleaning and benchmarking pipelines to assess heat delivery, supply-temperature dynamics, and network heat losses.
+          </p>
+          <div class="bento-metric-bar">
+            <div>
+              <span class="bento-metric-label">Environment</span>
+              <span class="bento-metric-val">INATECH, Freiburg</span>
+            </div>
+            <div>
+              <span class="bento-metric-label">Core Stack</span>
+              <span class="bento-metric-val">Python &bull; Pandas</span>
+            </div>
+            <div>
+              <span class="bento-metric-label">Focus</span>
+              <span class="bento-metric-val">Thermal Sizing</span>
+            </div>
+          </div>
           <div class="fp-tags">
             <span class="fp-tag">District Heating</span>
             <span class="fp-tag">Python</span>
-            <span class="fp-tag">Energy Analysis</span>
-            <span class="fp-tag">INATECH</span>
+            <span class="fp-tag">Data Analysis</span>
+            <span class="fp-tag">Building Energy</span>
           </div>
-          <a href="work.html#district-heating" class="fp-link">
-            Read more <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+          <a href="work.html#district-heating" class="fp-link" style="margin-top:16px;">
+            Detailed Case Study <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
           </a>
         </div>
 
-        <div class="fp-card fp-placeholder reveal reveal-delay-2">
-          <span class="fp-number" aria-hidden="true">02</span>
-          <span class="fp-category">Research · M.Sc. Academic Project</span>
-          <h3 class="fp-title">Heat-Pump Emissions &amp; Variable Grid CO&#8322; Intensities</h3>
-          <p class="fp-desc">Academic research project (part of M.Sc. programme) examining how heat-pump emissions change under variable grid carbon intensities across German regions, with analysis of photovoltaic (PV) and combined heat and power (CHP) integration. Carried out alongside my work at INATECH.</p>
+        <!-- 02: Heat Pump Research (Secondary Bento Card) -->
+        <div class="bento-card bento-secondary reveal reveal-delay-2">
+          <div class="bento-top">
+            <span class="bento-tag-badge">M.Sc. Academic Project</span>
+          </div>
+          <h3 class="bento-title">Heat-Pump Emissions under Variable Grid CO&#8322;</h3>
+          <p class="bento-desc">
+            Regional German study evaluating temporal grid carbon intensities, seasonal PV surplus dynamics, and combined heat &amp; power (CHP) integration on heat pump operational decarbonization.
+          </p>
+          <div class="bento-metric-bar">
+            <div>
+              <span class="bento-metric-label">Region</span>
+              <span class="bento-metric-val">Germany</span>
+            </div>
+            <div>
+              <span class="bento-metric-label">Domain</span>
+              <span class="bento-metric-val">Decarbonization</span>
+            </div>
+          </div>
           <div class="fp-tags">
             <span class="fp-tag">Heat Pumps</span>
-            <span class="fp-tag">CO&#8322; Intensity</span>
-            <span class="fp-tag">Germany</span>
-            <span class="fp-tag">PV · CHP</span>
+            <span class="fp-tag">CO&#8322; Modeling</span>
+            <span class="fp-tag">PV &bull; CHP</span>
           </div>
-          <span class="fp-placeholder-note">M.Sc. Academic Project · University of Freiburg</span>
-        </div>
-
-        <div class="fp-card reveal reveal-delay-3">
-          <span class="fp-number" aria-hidden="true">03</span>
-          <span class="fp-category">Building Energy</span>
-          <h3 class="fp-title">Earthquake-Resistant Building: Thermal Retrofit Strategies</h3>
-          <p class="fp-desc">Study examining passive and active thermal retrofitting strategies for earthquake-resistant buildings in Nepal. Analysed energy performance under both retrofit approaches.</p>
-          <div class="fp-tags">
-            <span class="fp-tag">Building Energy</span>
-            <span class="fp-tag">Thermal Retrofit</span>
-            <span class="fp-tag">Nepal</span>
-          </div>
-          <a href="https://www.researchgate.net/project/Study-of-Earthquake-Resistant-Building-For-Passive-and-Active-Thermal-Retrofitting-Strategy-A-Case-Study" class="fp-link" target="_blank" rel="noopener">
-            View on ResearchGate <ion-icon name="open-outline" aria-hidden="true"></ion-icon>
+          <a href="work.html#heat-pump-research" class="fp-link" style="margin-top:16px;">
+            Read Overview <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
           </a>
         </div>
 
-        <div class="fp-card reveal reveal-delay-4">
-          <span class="fp-number" aria-hidden="true">04</span>
-          <span class="fp-category">Thermal Systems</span>
-          <h3 class="fp-title">Design &amp; Analysis of Low-Temperature Refrigeration System</h3>
-          <p class="fp-desc">Design, thermodynamic analysis, and performance evaluation of a low-temperature refrigeration system. Covers system sizing, cycle analysis, and component selection.</p>
-          <div class="fp-tags">
-            <span class="fp-tag">Refrigeration</span>
-            <span class="fp-tag">Thermodynamics</span>
-            <span class="fp-tag">System Design</span>
+        <!-- 03: Earthquake-Resistant Thermal Retrofit -->
+        <div class="bento-card bento-compact-1 reveal reveal-delay-3">
+          <div class="bento-top">
+            <span class="bento-tag-badge">Building Energy</span>
           </div>
-          <a href="https://www.researchgate.net/publication/365780080_DESIGN_AND_ANALYSIS_OF_LOW_TEMPERATURE_REFRIGERATION_SYSTEM" class="fp-link" target="_blank" rel="noopener">
-            View on ResearchGate <ion-icon name="open-outline" aria-hidden="true"></ion-icon>
+          <h3 class="bento-title">Earthquake-Resistant Building: Thermal Retrofit</h3>
+          <p class="bento-desc">
+            Case study examining passive and active thermal retrofitting strategies for earthquake-resilient structures in Nepal's sub-tropical climate.
+          </p>
+          <div class="fp-tags">
+            <span class="fp-tag">Thermal Retrofit</span>
+            <span class="fp-tag">Passive Cooling</span>
+            <span class="fp-tag">Nepal</span>
+          </div>
+          <a href="https://www.researchgate.net/project/Study-of-Earthquake-Resistant-Building-For-Passive-and-Active-Thermal-Retrofitting-Strategy-A-Case-Study" class="fp-link" target="_blank" rel="noopener" style="margin-top:16px;">
+            ResearchGate Project <ion-icon name="open-outline" aria-hidden="true"></ion-icon>
+          </a>
+        </div>
+
+        <!-- 04: Low-Temperature Refrigeration -->
+        <div class="bento-card bento-compact-2 reveal reveal-delay-4">
+          <div class="bento-top">
+            <span class="bento-tag-badge">Thermal Systems</span>
+          </div>
+          <h3 class="bento-title">Low-Temperature Refrigeration System Design</h3>
+          <p class="bento-desc">
+            Thermodynamic cycle simulation, COP benchmarking, and component sizing for industrial vapour-compression refrigeration systems.
+          </p>
+          <div class="fp-tags">
+            <span class="fp-tag">Thermodynamics</span>
+            <span class="fp-tag">Refrigeration</span>
+            <span class="fp-tag">System Sizing</span>
+          </div>
+          <a href="https://www.researchgate.net/publication/365780080_DESIGN_AND_ANALYSIS_OF_LOW_TEMPERATURE_REFRIGERATION_SYSTEM" class="fp-link" target="_blank" rel="noopener" style="margin-top:16px;">
+            Publication Report <ion-icon name="open-outline" aria-hidden="true"></ion-icon>
           </a>
         </div>
 
@@ -254,10 +310,11 @@
 
       <div class="work-cta reveal">
         <a href="work.html" class="btn-outline">
-          View All Work <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+          Explore All Engineering &amp; Research <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
         </a>
       </div>
     </section>
+
 
     <div class="section-divider"><hr></div>
 
