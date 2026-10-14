@@ -25,8 +25,9 @@
   --icon-filter:   brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(10deg) brightness(0.9);
 
   /* Typography */
-  --font-body:    'Inter', system-ui, sans-serif;
+  --font-body:    'IBM Plex Sans', system-ui, sans-serif;
   --font-heading: 'Playfair Display', Georgia, serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, monospace;
 
   /* Sizing */
   --nav-height:   72px;
@@ -39,10 +40,16 @@
   /* Transitions */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  color-scheme: dark;
 }
 
 /* ——— LIGHT THEME ——— */
 [data-theme="light"] {
+  color-scheme: light;
+  /* Darker gold so accent text meets WCAG AA on the light background */
+  --accent:        #8f6b2a;
+  --accent-hover:  #7a5a22;
   --bg-primary:    #f5f5f7;
   --bg-secondary:  #ffffff;
   --bg-tertiary:   #eaeaef;
@@ -88,11 +95,27 @@ a {
   color: inherit;
   transition: color 0.3s var(--ease-out);
 }
-a:focus-visible {
+a:focus-visible,
+button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 4px;
 }
+
+a, button { touch-action: manipulation; }
+
+.skip-link {
+  position: absolute;
+  top: 12px; left: 12px;
+  z-index: 1100;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: var(--bg-primary);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transform: translateY(-200%);
+}
+.skip-link:focus-visible { transform: none; }
 
 ul, ol { list-style: none; }
 
@@ -178,16 +201,6 @@ body::before {
   pointer-events: none;
   z-index: 0;
   animation: ambientDrift 20s ease-in-out infinite alternate;
-}
-body::after {
-  content: '';
-  position: fixed;
-  bottom: -30%; right: -15%;
-  width: 60vw; height: 60vw;
-  background: radial-gradient(circle, rgba(100,120,200,0.03) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: 0;
-  animation: ambientDrift 25s ease-in-out infinite alternate-reverse;
 }
 
 @keyframes ambientDrift {
@@ -327,7 +340,7 @@ body::after {
   background: transparent;
   color: var(--text-secondary);
   font-size: 1.2rem;
-  transition: all 0.3s var(--ease-out);
+  transition: color 0.3s var(--ease-out), background-color 0.3s var(--ease-out), border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
   margin-left: 8px;
   position: relative;
   overflow: hidden;
@@ -480,43 +493,23 @@ body::after {
   flex-shrink: 0;
   position: relative;
 }
-.hero-avatar-wrap::before {
-  content: '';
-  position: absolute;
-  inset: -8px;
-  border-radius: 50%;
-  border: 2px dashed var(--accent-glow);
-  animation: avatarSpin 20s linear infinite;
-}
-@keyframes avatarSpin {
-  to { transform: rotate(360deg); }
-}
-
 .hero-avatar {
-  width: 180px; height: 180px;
-  border-radius: 50%;
+  width: 220px; height: 260px;
+  border-radius: 28px;
   object-fit: cover;
-  border: 4px solid var(--accent);
-  box-shadow: 0 0 40px rgba(197,160,89,0.15);
-  transition: transform 0.5s var(--ease-spring), box-shadow 0.5s var(--ease-out);
-  animation: heroFloat 6s ease-in-out infinite;
-}
-@keyframes heroFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-.hero-avatar:hover {
-  transform: scale(1.05) rotate(2deg);
-  box-shadow: 0 0 60px rgba(197,160,89,0.25);
+  object-position: center 20%;
+  border: 1px solid var(--border-accent);
+  box-shadow: 0 24px 60px -24px rgba(197,160,89,0.35);
 }
 
 .hero-text .hero-name {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.6rem, 6vw, 4.25rem);
   font-weight: 700;
+  line-height: 1.05;
   color: var(--text-primary);
-  margin-bottom: 6px;
-  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+  letter-spacing: -0.025em;
 }
 .hero-text .hero-title {
   font-size: clamp(1rem, 1.8vw, 1.2rem);
@@ -556,7 +549,7 @@ body::after {
   border-radius: 30px;
   font-size: 0.88rem;
   font-weight: 500;
-  transition: all 0.3s var(--ease-out);
+  transition: color 0.3s var(--ease-out), background-color 0.3s var(--ease-out), border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
   margin-top: 18px;
   position: relative;
   overflow: hidden;
@@ -660,7 +653,7 @@ body::after {
   border-radius: 30px;
   font-weight: 600;
   font-size: 0.9rem;
-  transition: all 0.3s var(--ease-out);
+  transition: color 0.3s var(--ease-out), background-color 0.3s var(--ease-out), border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
   box-shadow: 0 4px 15px rgba(197,160,89,0.25);
   position: relative;
   overflow: hidden;
@@ -760,13 +753,11 @@ body::after {
 
 .timeline-item .date {
   display: inline-block;
-  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
   color: var(--accent);
   margin-bottom: 8px;
-  font-weight: 500;
-  background: var(--accent-glow);
-  padding: 3px 12px;
-  border-radius: 20px;
 }
 
 .timeline-item p {
@@ -882,7 +873,7 @@ body::after {
   display: flex;
   justify-content: center;
   opacity: 0.4;
-  transition: all 0.4s var(--ease-out);
+  transition: color 0.4s var(--ease-out), background-color 0.4s var(--ease-out), border-color 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), transform 0.4s var(--ease-out), opacity 0.4s var(--ease-out);
   filter: grayscale(1) brightness(2);
 }
 [data-theme="light"] .clients-list a {
@@ -919,7 +910,7 @@ body::after {
   padding: 8px 20px;
   border-radius: 30px;
   border: 1px solid var(--border);
-  transition: all 0.3s var(--ease-out);
+  transition: color 0.3s var(--ease-out), background-color 0.3s var(--ease-out), border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
   position: relative;
   overflow: hidden;
 }
@@ -1044,7 +1035,7 @@ body::after {
   border-radius: 30px;
   font-size: 0.92rem;
   font-weight: 500;
-  transition: all 0.3s var(--ease-out);
+  transition: color 0.3s var(--ease-out), background-color 0.3s var(--ease-out), border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
   position: relative;
   overflow: hidden;
 }
@@ -1228,7 +1219,7 @@ textarea.form-input {
   border-radius: 30px;
   font-size: 1rem;
   font-weight: 600;
-  transition: all 0.3s var(--ease-out);
+  transition: color 0.3s var(--ease-out), background-color 0.3s var(--ease-out), border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
   box-shadow: 0 4px 15px rgba(197,160,89,0.25);
   position: relative;
   overflow: hidden;
@@ -1338,7 +1329,7 @@ textarea.form-input {
     gap: 32px;
   }
   .hero-avatar {
-    width: 140px; height: 140px;
+    width: 180px; height: 215px;
   }
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1386,8 +1377,14 @@ textarea.form-input {
   }
 
   .hero-avatar {
-    width: 130px; height: 130px;
+    width: 150px; height: 175px;
+    border-radius: 22px;
   }
+  .hero-meta-strip {
+    justify-content: center;
+    gap: 6px 12px;
+  }
+  .hero-meta-divider { display: none; }
 
   .section-header {
     flex-direction: column;
@@ -1461,9 +1458,7 @@ textarea.form-input {
     opacity: 1;
     transform: none;
   }
-  .hero-avatar { animation: none; }
-  .hero-avatar-wrap::before { animation: none; }
-  body::before, body::after { animation: none; }
+  body::before { animation: none; }
 }
 
 /* ===================================
@@ -1491,7 +1486,7 @@ textarea.form-input {
   font-size: 0.95rem;
   border: none;
   cursor: pointer;
-  transition: all 0.3s var(--ease-out);
+  transition: color 0.3s var(--ease-out), background-color 0.3s var(--ease-out), border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
   box-shadow: 0 4px 18px rgba(197,160,89,0.25);
   text-decoration: none;
 }
@@ -1513,7 +1508,7 @@ textarea.form-input {
   font-weight: 500;
   font-size: 0.95rem;
   text-decoration: none;
-  transition: all 0.3s var(--ease-out);
+  transition: color 0.3s var(--ease-out), background-color 0.3s var(--ease-out), border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
 }
 .btn-secondary:hover {
   background: var(--accent-glow);
@@ -1533,7 +1528,7 @@ textarea.form-input {
   font-size: 0.88rem;
   font-weight: 500;
   text-decoration: none;
-  transition: all 0.3s var(--ease-out);
+  transition: color 0.3s var(--ease-out), background-color 0.3s var(--ease-out), border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
 }
 .btn-outline:hover {
   background: var(--accent-glow);
@@ -1545,14 +1540,17 @@ textarea.form-input {
    V2 — SECTION EYEBROW
    =================================== */
 .section-eyebrow {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   color: var(--accent);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   display: block;
 }
+
+h1, h2, h3, .h2, .h3, .bento-title, .article-title { text-wrap: balance; }
+p { text-wrap: pretty; }
 
 /* ===================================
    V2 — HERO SECTION
@@ -2009,19 +2007,14 @@ textarea.form-input {
 
 /* 3. Hero Status Pill / Live Meta Strip */
 .hero-meta-strip {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 18px;
-  background: var(--card-bg);
-  border: 1px solid var(--border-accent);
-  padding: 6px 16px;
-  border-radius: 30px;
-  font-size: 0.8rem;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  gap: 8px 14px;
+  margin-bottom: 22px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
 }
 .hero-status-pill {
   display: inline-flex;
@@ -2031,28 +2024,20 @@ textarea.form-input {
   font-weight: 500;
 }
 .pulse-indicator {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   background: #10b981;
   border-radius: 50%;
-  position: relative;
-  box-shadow: 0 0 0 rgba(16, 185, 129, 0.4);
-  animation: pulse-green 2s infinite;
-}
-@keyframes pulse-green {
-  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-  70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  flex-shrink: 0;
 }
 .hero-meta-divider {
   width: 1px;
-  height: 14px;
-  background: var(--border);
+  height: 12px;
+  background: var(--text-secondary);
+  opacity: 0.35;
 }
 .hero-meta-item {
   color: var(--text-secondary);
-  font-size: 0.78rem;
-  font-family: var(--font-body);
 }
 
 /* 4. Quick Action Pill / Copy Toast */
@@ -2066,8 +2051,7 @@ textarea.form-input {
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 5px 12px;
-  margin-top: 8px;
-  transition: all 0.25s var(--ease-out);
+  transition: color 0.25s var(--ease-out), background-color 0.25s var(--ease-out), border-color 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out), transform 0.25s var(--ease-out), opacity 0.25s var(--ease-out);
   cursor: pointer;
 }
 .btn-copy-email:hover {
@@ -2151,25 +2135,18 @@ textarea.form-input {
   margin-bottom: 12px;
 }
 .bento-tag-badge {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
   color: var(--accent);
-  background: var(--accent-glow);
-  padding: 4px 10px;
-  border-radius: 12px;
 }
 .bento-badge-live {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
   color: #10b981;
-  background: rgba(16, 185, 129, 0.1);
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-weight: 600;
 }
 .bento-title {
   font-family: var(--font-heading);
@@ -2202,15 +2179,14 @@ textarea.form-input {
   background: rgba(0,0,0,0.03);
 }
 .bento-metric-label {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   color: var(--text-secondary);
   display: block;
 }
 .bento-metric-val {
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1.05rem;
+  font-weight: 600;
   color: var(--text-primary);
   margin-top: 2px;
 }
@@ -2291,7 +2267,7 @@ textarea.form-input {
   justify-content: center;
   font-size: 1.4rem;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
 }
 .lightbox-close:hover {
   background: var(--accent);
@@ -2313,7 +2289,7 @@ textarea.form-input {
   justify-content: center;
   font-size: 1.5rem;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
 }
 .lightbox-nav:hover {
   background: var(--accent);

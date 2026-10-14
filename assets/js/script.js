@@ -399,6 +399,7 @@ window.copyEmailToClipboard = function (email) {
       toast = document.createElement('div');
       toast.id = 'toastNotice';
       toast.className = 'toast-notice';
+      toast.setAttribute('role', 'status');
       document.body.appendChild(toast);
     }
     toast.innerHTML = `<ion-icon name="checkmark-circle" style="color:#10b981; font-size:1.2rem;"></ion-icon><span>Email copied: <strong>${email}</strong></span>`;
@@ -423,6 +424,7 @@ window.copyEmailToClipboard = function (email) {
   if (!statusBox) {
     statusBox = document.createElement('div');
     statusBox.className = 'form-status-msg';
+    statusBox.setAttribute('role', 'status');
     contactForm.appendChild(statusBox);
   }
 
@@ -432,7 +434,7 @@ window.copyEmailToClipboard = function (email) {
 
     const originalBtnHTML = submitBtn.innerHTML;
     submitBtn.setAttribute('disabled', 'true');
-    submitBtn.innerHTML = `<span class="form-spinner"></span><span>Sending message...</span>`;
+    submitBtn.innerHTML = `<span class="form-spinner"></span><span>Sending…</span>`;
     statusBox.className = 'form-status-msg';
     statusBox.style.display = 'none';
 
@@ -448,7 +450,7 @@ window.copyEmailToClipboard = function (email) {
     .then(response => {
       if (response.ok) {
         statusBox.className = 'form-status-msg success';
-        statusBox.innerHTML = `<strong>Message received!</strong> Thank you for reaching out. I'll get back to you promptly.`;
+        statusBox.innerHTML = `<strong>Message sent.</strong> Thank you for writing; I will reply soon.`;
         contactForm.reset();
       } else {
         return response.json().then(data => {
@@ -458,7 +460,7 @@ window.copyEmailToClipboard = function (email) {
     })
     .catch(err => {
       statusBox.className = 'form-status-msg error';
-      statusBox.innerHTML = `<strong>Oops!</strong> Couldn't send automatically. You can email me directly at <a href="mailto:sumanpathak.sp143@gmail.com" style="text-decoration:underline;">sumanpathak.sp143@gmail.com</a>.`;
+      statusBox.innerHTML = `<strong>That did not send.</strong> Please try again, or email me directly at <a href="mailto:sumanpathak.sp143@gmail.com" style="text-decoration:underline;">sumanpathak.sp143@gmail.com</a>.`;
     })
     .finally(() => {
       submitBtn.removeAttribute('disabled');
