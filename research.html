@@ -1,334 +1,178 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Research & Writing | Suman Pathak</title>
+  <script>try{var t=localStorage.getItem("sp-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <title>Research &amp; Writing | Suman Pathak</title>
   <meta name="description" content="Articles and research by Suman Pathak on energy policy, building energy, buildings and climate, and technology. Including The Hydropower Illusion and other pieces.">
   <link rel="canonical" href="https://sumanpathak.com.np/research.html">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1220" media="(prefers-color-scheme: dark)">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sumanpathak.com.np/research.html">
-  <meta property="og:title" content="Research & Writing | Suman Pathak">
-  <meta property="og:description" content="Articles on energy policy, building energy, buildings and climate, and technology. Writing as a way of thinking.">
-  <meta property="og:image" content="https://sumanpathak.com.np/assets/images/hydropower-hero.jpg">
+  <meta property="og:title" content="Research &amp; Writing">
+  <meta property="og:description" content="Articles and research by Suman Pathak on energy policy, building energy, buildings and climate, and technology. Including The Hydropower Illusion and other pieces.">
+  <meta property="og:image" content="https://sumanpathak.com.np/assets/images/writing/hydropower-hero.jpg">
+  <meta property="og:site_name" content="Suman Pathak">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Research &amp; Writing">
+  <meta name="twitter:description" content="Articles and research by Suman Pathak on energy policy, building energy, buildings and climate, and technology. Including The Hydropower Illusion and other pieces.">
+  <meta name="twitter:image" content="https://sumanpathak.com.np/assets/images/writing/hydropower-hero.jpg">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
 
-  <!-- Fonts -->
+  <!-- Font: Literata -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="./assets/css/style.css">
-
-  <!-- Ionicons -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-  <style>
-    .rg-callout {
-      display: inline-flex;
-      align-items: center;
-      gap: 16px;
-      padding: 16px 24px;
-      background: var(--card-bg);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      margin: 28px 0;
-      text-decoration: none;
-      color: inherit;
-      transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
-    }
-    .rg-callout:hover {
-      border-color: var(--border-accent);
-      transform: translateY(-2px);
-      color: inherit;
-    }
-    .rg-callout-icon {
-      font-size: 2rem;
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-    .rg-callout-label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      display: block;
-      margin-bottom: 4px;
-    }
-    .rg-callout-stats {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-    }
-    .rg-callout-stats strong {
-      color: var(--text-primary);
-      font-weight: 600;
-    }
-    .category-filter {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 36px;
-    }
-    .cat-btn {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      padding: 7px 18px;
-      border-radius: 24px;
-      border: 1px solid var(--border);
-      background: none;
-      cursor: pointer;
-      font-family: inherit;
-      transition: all 0.25s var(--ease-out);
-    }
-    .cat-btn:hover,
-    .cat-btn.active {
-      color: var(--bg-primary);
-      background: var(--accent);
-      border-color: var(--accent);
-    }
-  </style>
+  <link rel="stylesheet" href="./assets/css/base.css">
+  <link rel="stylesheet" href="./assets/css/writing.css">
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
+  <nav class="top-nav" id="topNav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-brand">Suman Pathak</a>
 
-  <!-- NAVIGATION -->
-  <nav class="top-nav" id="topNav" role="navigation" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-brand" aria-label="Suman Pathak — Home">
-        <div class="nav-brand-icon" aria-hidden="true">SP</div>
-        <span class="nav-brand-name">Suman Pathak</span>
-      </a>
       <div class="nav-actions">
-        <ul class="nav-links" id="navLinks" role="list">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
+        <ul class="nav-links" id="navLinks">
           <li><a href="work.html" class="nav-link">Work</a></li>
-          <li><a href="research.html" class="nav-link active" aria-current="page">Research &amp; Writing</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="research.html" class="nav-link" aria-current="page">Writing</a></li>
           <li><a href="photography.html" class="nav-link">Photography</a></li>
-          <li><a href="./assets/images/my_resume.pdf" class="nav-link" target="_blank" rel="noopener">CV</a></li>
           <li><a href="index.html#contact" class="nav-link">Contact</a></li>
         </ul>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme">
-          <ion-icon name="sunny-outline" class="icon-sun"></ion-icon>
-          <ion-icon name="moon-outline" class="icon-moon"></ion-icon>
+        <a href="./assets/images/my_resume.pdf" class="btn btn-quiet nav-cv" target="_blank" rel="noopener">CV</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch between light and dark theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         </button>
-        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+        <button class="hamburger" id="hamburger" type="button" aria-expanded="false" aria-controls="mobileDrawer">Menu</button>
       </div>
     </div>
-    <div class="mobile-drawer" id="mobileDrawer">
+
+    <div class="mobile-drawer" id="mobileDrawer" aria-label="Menu">
+      <button class="btn btn-quiet drawer-close" type="button">Close</button>
       <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
       <a href="work.html" class="nav-link">Work</a>
-      <a href="research.html" class="nav-link active">Research &amp; Writing</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="research.html" class="nav-link" aria-current="page">Writing</a>
       <a href="photography.html" class="nav-link">Photography</a>
       <a href="./assets/images/my_resume.pdf" class="nav-link" target="_blank" rel="noopener">CV</a>
       <a href="index.html#contact" class="nav-link">Contact</a>
     </div>
   </nav>
 
-  <main class="main-content">
+  <main id="main">
+    <header class="writing-hero">
+      <div class="container">
+        <h1>Research &amp; writing</h1>
+        <p class="lead">Writing is part of how I think: a way to analyse, question and communicate ideas clearly. Articles on energy policy, buildings and climate, and technology.</p>
 
-    <!-- PAGE HERO -->
-    <section class="section" style="padding-top: calc(var(--nav-height) + 64px); padding-bottom: 0;">
-      <div class="reveal">
-        <span class="section-eyebrow">Ideas &amp; Analysis</span>
-        <h1 class="h2" style="font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; margin-top: 8px;">Research &amp; Writing</h1>
-      </div>
-      <p class="about-text reveal" style="max-width: 640px; margin-top: 16px;">
-        Writing is part of how I think — a way to analyse, question, and communicate ideas clearly. Here you'll find articles on energy policy, buildings and climate, and technology.
-      </p>
-
-      <!-- ResearchGate callout -->
-      <a href="https://www.researchgate.net/profile/Suman-Pathak" class="rg-callout reveal" target="_blank" rel="noopener" aria-label="Visit ResearchGate profile">
-        <ion-icon name="book-outline" class="rg-callout-icon" aria-hidden="true"></ion-icon>
-        <div>
-          <span class="rg-callout-label">ResearchGate Profile</span>
-          <p class="rg-callout-stats"><span id="rg-reads" data-rg-stat="reads"><strong>64,666</strong></span> reads &nbsp;·&nbsp; RIS: <span id="rg-ris" data-rg-stat="ris"><strong>88.0</strong></span> &nbsp;·&nbsp; <span id="rg-recs" data-rg-stat="recs"><strong>4</strong></span> Recommendations &nbsp;·&nbsp; <span id="rg-citations" data-rg-stat="citations"><strong>1</strong></span> Citation</p>
+        <div class="rg-panel">
+          <dl class="rg-stats" aria-label="ResearchGate statistics">
+            <div><dt>Reads</dt><dd><span id="rg-reads" data-rg-stat="reads"><strong>64,666</strong></span></dd></div>
+            <div><dt>Research Interest Score</dt><dd><span id="rg-ris" data-rg-stat="ris"><strong>88.0</strong></span></dd></div>
+            <div><dt>Recommendations</dt><dd><span id="rg-recs" data-rg-stat="recs"><strong>4</strong></span></dd></div>
+            <div><dt>Citations</dt><dd><span id="rg-citations" data-rg-stat="citations"><strong>1</strong></span></dd></div>
+          </dl>
+          <div class="rg-note">
+            <p>My ResearchGate uploads are unpublished academic work: course projects, lab reports and design studies from my B.E. in Mechanical Engineering at Kathmandu University, shared in case someone finds them useful. They reflect where I was academically at the time of writing.</p>
+            <a class="arrow-link" href="https://www.researchgate.net/profile/Suman-Pathak" target="_blank" rel="noopener">ResearchGate profile <span aria-hidden="true">&rarr;</span></a>
+          </div>
         </div>
-        <ion-icon name="open-outline" style="color:var(--text-secondary); font-size:0.95rem; flex-shrink:0;" aria-hidden="true"></ion-icon>
-      </a>
-
-      <!-- ResearchGate disclaimer -->
-      <div class="reveal" style="max-width:680px; margin-top:4px; padding:14px 20px; background:var(--accent-glow); border-left:3px solid var(--border-accent); border-radius:0 var(--radius-sm) var(--radius-sm) 0; font-size:0.88rem; color:var(--text-secondary); line-height:1.65;">
-        <strong style="color:var(--text-primary);">A note on my ResearchGate publications:</strong> These are unpublished academic works — course projects, lab reports, and design studies — that I uploaded publicly in case someone finds them useful. They span from my first year through to my final year of the B.E. in Mechanical Engineering at Kathmandu University. The quality of content and presentation reflects where I was academically at the time of writing, so please keep that context in mind.
       </div>
+    </header>
 
-      <!-- Category filter -->
-      <div class="category-filter" role="group" aria-label="Filter articles by category">
-        <button class="cat-btn active" data-filter="all">All</button>
-        <button class="cat-btn" data-filter="energy-policy">Energy Policy</button>
-        <button class="cat-btn" data-filter="buildings">Buildings &amp; Climate</button>
-        <button class="cat-btn" data-filter="technology">Technology</button>
-      </div>
-    </section>
-
-    <!-- ARTICLES -->
     <section class="section" style="padding-top: 24px;" aria-label="Articles">
-      <div class="article-grid">
+      <div class="container">
+        <div class="filter" role="group" aria-label="Filter articles by topic">
+          <button type="button" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-filter="energy-policy" aria-pressed="false">Energy policy</button>
+          <button type="button" data-filter="buildings" aria-pressed="false">Buildings and climate</button>
+          <button type="button" data-filter="resources" aria-pressed="false">Resources and recycling</button>
+          <button type="button" data-filter="technology" aria-pressed="false">Technology</button>
+        </div>
 
-        <!-- 1: Hydropower Illusion -->
-        <a href="hydropower-illusion.html" class="article-card reveal reveal-delay-1" data-category="energy-policy">
-          <div class="article-card-img">
-            <img src="./assets/images/hydropower-hero.jpg" alt="Nepal hydropower dam — Upper Tamakoshi" loading="lazy">
-          </div>
-          <div class="article-card-body">
-            <div class="article-meta">
-              <span class="article-category-tag">Energy Policy</span>
-              <span class="dot"></span>
-              <time datetime="2025-04-10">Apr 10, 2025</time>
-            </div>
-            <h2 class="article-title">The Hydropower Illusion: Nepal's Energy Sovereignty</h2>
-            <p class="article-excerpt">Nepal sits atop 83,000 MW of hydropower potential, yet the average Nepali uses less electricity than someone in sub-Saharan Africa. An investigative look at who benefits from Nepal's rivers — and what this means for energy sovereignty.</p>
-            <span class="article-read-more">Read article <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></span>
+        <a class="post-feature" href="hydropower-illusion.html" data-category="energy-policy">
+          <img src="./assets/images/writing/hydropower-hero.jpg" alt="Upper Tamakoshi hydropower project, Nepal" width="1600" height="550" fetchpriority="high">
+          <div>
+            <p class="meta-line"><span>Energy policy</span><span><time datetime="2025-04-10">10 April 2025</time></span><span>19 min read</span></p>
+            <h2>The Hydropower Illusion: Nepal’s Energy Sovereignty</h2>
+            <p class="excerpt">Nepal sits atop 83,000 MW of hydropower potential, yet the average Nepali uses less electricity than someone in sub-Saharan Africa. An investigative look at who really benefits from Nepal’s rivers.</p>
+            <span class="arrow-link">Read the article <span aria-hidden="true">&rarr;</span></span>
           </div>
         </a>
 
-        <!-- 2: Earthquake Preparedness -->
-        <a href="earthquake.html" class="article-card reveal reveal-delay-2" data-category="buildings">
-          <div class="article-card-img">
-            <img src="./assets/images/earthquake3.png" alt="Nepal earthquake preparedness" loading="lazy">
-          </div>
-          <div class="article-card-body">
-            <div class="article-meta">
-              <span class="article-category-tag">Buildings &amp; Climate</span>
-              <span class="dot"></span>
-              <time datetime="2025-04-11">Apr 11, 2025</time>
-            </div>
-            <h2 class="article-title">Nepal's Earthquake Preparedness: Resilience, Risk Monitoring &amp; Comprehensive Strategies</h2>
-            <p class="article-excerpt">A decade after the 2015 Gorkha earthquake, Nepal has advanced in preparedness and resilience — but challenges persist in a nation sitting atop active tectonic stress.</p>
-            <span class="article-read-more">Read article <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></span>
-          </div>
-        </a>
-
-        <!-- 3: Climate Change & Buildings -->
-        <a href="climate.html" class="article-card reveal reveal-delay-3" data-category="buildings">
-          <div class="article-card-img">
-            <img src="./assets/images/climate.jpg" alt="Climate-resilient building design" loading="lazy">
-          </div>
-          <div class="article-card-body">
-            <div class="article-meta">
-              <span class="article-category-tag">Buildings &amp; Climate</span>
-              <span class="dot"></span>
-              <time datetime="2024-01-05">Jan 5, 2024</time>
-            </div>
-            <h2 class="article-title">Impact of Climate Change on Building Design and Performance</h2>
-            <p class="article-excerpt">How a changing climate is reshaping architecture — from sustainable materials and passive design to smart building systems, with a case study from Nepal's Green Village project.</p>
-            <span class="article-read-more">Read article <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></span>
-          </div>
-        </a>
-
-        <!-- 4: Passive Cooling -->
-        <a href="passive_cooling.html" class="article-card reveal reveal-delay-1" data-category="buildings">
-          <div class="article-card-img">
-            <img src="./assets/images/urban.png" alt="Urban landscape with green cooling features" loading="lazy">
-          </div>
-          <div class="article-card-body">
-            <div class="article-meta">
-              <span class="article-category-tag">Buildings &amp; Climate</span>
-              <span class="dot"></span>
-              <time datetime="2023-03-04">Mar 4, 2023</time>
-            </div>
-            <h2 class="article-title">From Rooftops to Streets: Passive Cooling Strategies for Urban Areas</h2>
-            <p class="article-excerpt">How green roofs, reflective surfaces, and urban vegetation can counter the urban heat island effect in fast-growing cities — and why passive cooling matters especially in energy-constrained contexts.</p>
-            <span class="article-read-more">Read article <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></span>
-          </div>
-        </a>
-
-        <!-- 5: Building Energy with CAD -->
-        <a href="revolutionizing-building-energy-efficiency.html" class="article-card reveal reveal-delay-2" data-category="buildings">
-          <div class="article-card-img">
-            <img src="./assets/images/futurehome.png" alt="Future home with CAD energy design" loading="lazy">
-          </div>
-          <div class="article-card-body">
-            <div class="article-meta">
-              <span class="article-category-tag">Buildings &amp; Climate</span>
-              <span class="dot"></span>
-              <time datetime="2023-03-02">Mar 2, 2023</time>
-            </div>
-            <h2 class="article-title">Revolutionizing Building Energy Efficiency with CAD Technology</h2>
-            <p class="article-excerpt">How CAD technology enables architects and engineers to model energy use, optimise HVAC systems, and design buildings that are more efficient from the outset — and what still holds adoption back.</p>
-            <span class="article-read-more">Read article <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></span>
-          </div>
-        </a>
-
-        <!-- 6: AI Writing -->
-        <a href="aiwriting.html" class="article-card reveal reveal-delay-3" data-category="technology">
-          <div class="article-card-img">
-            <img src="./assets/images/aiwriting.png" alt="AI writing tools" loading="lazy">
-          </div>
-          <div class="article-card-body">
-            <div class="article-meta">
-              <span class="article-category-tag">Technology</span>
-              <span class="dot"></span>
-              <time datetime="2023-11-28">Nov 28, 2023</time>
-            </div>
-            <h2 class="article-title">AI Writing: A Blessing or a Curse?</h2>
-            <p class="article-excerpt">AI writing tools can enhance productivity and creativity — but uncritical use risks eroding writing skills, authenticity, and research integrity. What does responsible use look like?</p>
-            <span class="article-read-more">Read article <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></span>
-          </div>
-        </a>
-
+        <div class="post-grid">
+          <a class="post-card" href="lead-acid-batteries.html" data-category="resources">
+            <div class="thumb"><img src="./assets/images/writing/lead-fig1.png" alt="Chart of global primary and secondary refined lead production, 2000 to 2024" width="2236" height="1250" loading="lazy"></div>
+            <p class="meta-line"><span><time datetime="2026-07-21">Jul 2026</time></span><span>15 min read</span></p>
+            <h2>Lead in Car Batteries: Where the World&rsquo;s Lead Goes</h2>
+            <p>Recycled lead now supplies two-thirds of battery-grade lead, yet a fifth of spent batteries escape formal collection, and even rapid EV adoption barely dents demand to 2040.</p>
+          </a>
+          <a class="post-card" href="earthquake.html" data-category="buildings">
+            <div class="thumb"><img src="./assets/images/writing/earthquake3.jpg" alt="Earthquake preparedness and resilience infrastructure in Nepal" width="946" height="424" loading="lazy"></div>
+            <p class="meta-line"><span><time datetime="2025-04-11">Apr 2025</time></span><span>3 min read</span></p>
+            <h2>Nepal’s Earthquake Preparedness</h2>
+            <p>A decade after the 2015 Gorkha earthquake, Nepal has advanced in preparedness and resilience, but challenges persist in a nation sitting atop active tectonic stress.</p>
+          </a>
+          <a class="post-card" href="climate.html" data-category="buildings">
+            <div class="thumb"><img src="./assets/images/writing/climate.jpg" alt="Climate-resilient building with sustainable design features" width="1024" height="1024" loading="lazy"></div>
+            <p class="meta-line"><span><time datetime="2024-01-05">Jan 2024</time></span><span>3 min read</span></p>
+            <h2>Impact of Climate Change on Building Design</h2>
+            <p>How a changing climate is reshaping architecture, from sustainable materials and passive design to smart building systems, with a case study from Nepal.</p>
+          </a>
+          <a class="post-card" href="aiwriting.html" data-category="technology">
+            <div class="thumb"><img src="./assets/images/writing/aiwriting.jpg" alt="Abstract illustration of AI-assisted writing" width="1600" height="847" loading="lazy"></div>
+            <p class="meta-line"><span><time datetime="2023-11-28">Nov 2023</time></span><span>2 min read</span></p>
+            <h2>AI Writing: A Blessing or a Curse?</h2>
+            <p>AI writing tools can enhance productivity and creativity, but uncritical use risks eroding writing skills, authenticity and research integrity.</p>
+          </a>
+          <a class="post-card" href="passive_cooling.html" data-category="buildings">
+            <div class="thumb"><img src="./assets/images/writing/urban.jpg" alt="Urban buildings with green roofs and vegetation" width="1024" height="1024" loading="lazy"></div>
+            <p class="meta-line"><span><time datetime="2023-03-04">Mar 2023</time></span><span>2 min read</span></p>
+            <h2>Passive Cooling Strategies for Urban Areas</h2>
+            <p>How green roofs, reflective surfaces and urban vegetation can counter the urban heat island effect in fast-growing cities.</p>
+          </a>
+          <a class="post-card" href="revolutionizing-building-energy-efficiency.html" data-category="buildings">
+            <div class="thumb"><img src="./assets/images/writing/futurehome.jpg" alt="Concept of an energy-efficient future home" width="1024" height="1024" loading="lazy"></div>
+            <p class="meta-line"><span><time datetime="2023-03-02">Mar 2023</time></span><span>2 min read</span></p>
+            <h2>Building Energy Efficiency with CAD</h2>
+            <p>How CAD technology lets architects and engineers model energy use, optimise HVAC systems and design more energy-efficient buildings from the outset.</p>
+          </a>
+        </div>
       </div>
     </section>
-
   </main>
 
-  <!-- FOOTER -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="nav-brand-icon" aria-hidden="true">SP</div>
-        <div class="footer-brand-text">
-          <span class="footer-brand-name">Suman Pathak</span>
-          <span class="footer-brand-role">Energy Systems Engineer · Freiburg, Germany</span>
-        </div>
-      </div>
-      <ul class="footer-socials" role="list">
-        <li><a href="https://www.linkedin.com/in/sumanpathak1" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-        <li><a href="https://www.researchgate.net/profile/Suman-Pathak" target="_blank" rel="noopener" class="social-link" aria-label="ResearchGate"><ion-icon name="book-outline"></ion-icon></a></li>
-        <li><a href="https://www.instagram.com/mrpathak10_/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="footerYear">2026</span> Suman Pathak &middot; Mechanical &amp; Energy Systems Engineer, Freiburg</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="research.html">Writing</a></li>
+        <li><a href="photography.html">Photography</a></li>
+        <li><a href="https://www.linkedin.com/in/sumanpathak1" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.researchgate.net/profile/Suman-Pathak" target="_blank" rel="noopener">ResearchGate</a></li>
       </ul>
-      <div class="footer-contact">
-        <a href="mailto:sumanpathak.sp143@gmail.com"><ion-icon name="mail-outline" aria-hidden="true"></ion-icon> sumanpathak.sp143@gmail.com</a>
-      </div>
-      <p class="footer-copyright">&copy; <span id="footerYear"></span> Suman Pathak. All rights reserved.</p>
     </div>
   </footer>
 
   <script src="./assets/js/script.js"></script>
-  <script>
-    // Footer year
-    const fy = document.getElementById('footerYear');
-    if (fy) fy.textContent = new Date().getFullYear();
-
-    // Category filter
-    const catBtns = document.querySelectorAll('.cat-btn');
-    const articleCards = document.querySelectorAll('.article-card[data-category]');
-    catBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        catBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        articleCards.forEach(card => {
-          card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
-        });
-      });
-    });
-  </script>
+  <script src="./assets/js/writing.js"></script>
 </body>
+
 </html>
