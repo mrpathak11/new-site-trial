@@ -246,3 +246,14 @@
 }
 .case-figures a:hover img { transform: scale(1.02); }
 .case-figures figcaption { margin-top: 10px; font-size: var(--step-small); color: var(--muted); }
+
+.case-links { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 24px; }
+.case-links .arrow-link { margin-top: 0; }
+
+/* Group headings on the Work page */
+.group-head {
+  font-size: var(--step-head);
+  padding: 24px 0 8px;
+  scroll-margin-top: calc(var(--nav-h) + 16px);
+}
+.case + .group-head { margin-top: 72px; }

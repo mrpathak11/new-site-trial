@@ -77,13 +77,61 @@
     <header class="page-hero">
       <div class="container">
         <h1>Work &amp; projects</h1>
-        <p class="lead">Energy systems engineering, thermodynamic modelling and empirical research: ongoing district heating analysis at INATECH, heat-pump decarbonisation, and the mechanical engineering design work that came before.</p>
+        <p class="lead">Energy systems engineering, thermodynamic modelling and empirical research: two BauSim 2026 publications, ongoing district heating analysis at INATECH, heat-pump decarbonisation, and the mechanical engineering design work that came before.</p>
       </div>
     </header>
 
-    <section aria-labelledby="selected-heading">
+    <section aria-label="Publications and projects">
       <div class="container">
-        <h2 class="sr-only" id="selected-heading">Selected projects</h2>
+        <h2 class="group-head" id="publications">Publications</h2>
+        <article class="case is-pub" id="chp-bausim-2026">
+          <div class="case-text">
+            <p class="case-kicker">Publication &middot; Peer-reviewed conference paper, BauSim 2026, Z&uuml;rich</p>
+            <h2>Assessing CHP Systems for Primary Energy Efficiency, CO&#8322; Emissions and Grid Support</h2>
+            <p>With colleagues at INATECH and Fraunhofer ISE, I co-authored this paper on combined heat and power (CHP) for the Smart District Karlsruhe-Durlach, a group of five multi-family buildings with minute-level monitoring data for 2024. We simulated five supply systems hour by hour (a gas boiler reference, micro gas turbine and gas-engine CHP, each with and without a heat pump, all with PV) at three German locations: Karlsruhe, Hamburg and Leipzig.</p>
+            <p>The CO&#8322; benefit of CHP depends on the local grid far more than on the technology: the same micro gas turbine cut emissions by 32.8% in coal-heavy Leipzig but raised them by 8.7% in Karlsruhe. Adding a heat pump reduced emissions everywhere, by up to 50% in Leipzig. The EU Ecodesign primary-energy metric misses these location effects, so we argue for location-sensitive CHP assessment.</p>
+            <p class="case-links"><a class="arrow-link" href="https://publications.ibpsa.org/conference/paper/?id=bausim2026_323" target="_blank" rel="noopener">View the paper <span aria-hidden="true">&rarr;</span></a><a class="arrow-link" href="https://publications.ibpsa.org/proceedings/bausim/2026/papers/bausim2026_323.pdf" target="_blank" rel="noopener">Download PDF <span aria-hidden="true">&rarr;</span></a></p>
+          </div>
+          <div class="case-side">
+
+            <dl class="case-facts">
+              <div><dt>Authors</dt><dd>M. Kropp, S. Pathak, S. Naderi, G. F&uuml;ldner, A. Velte-Sch&auml;fer</dd></div>
+              <div><dt>Published in</dt><dd>Proceedings of BauSim 2026 (IBPSA-Germany, Austria and Switzerland), pp. 265&ndash;272</dd></div>
+              <div><dt>Methods</dt><dd>Hourly dispatch simulation, CO&#8322; and primary-energy assessment, grid support coefficients</dd></div>
+              <div><dt>Tools</dt><dd>Python, EHDO</dd></div>
+            </dl>
+          </div>
+          <div class="case-figures">
+            <figure><a href="./assets/images/projects/chp-system-model.png" target="_blank" rel="noopener"><img src="./assets/images/projects/chp-system-model.png" alt="System diagram with heat pump, CHP or micro gas turbine, gas boiler, PV, grid and heat storage, with heat, electricity and CO2 flows" width="868" height="525" loading="lazy"></a><figcaption>System model for the five configurations.</figcaption></figure>
+            <figure><a href="./assets/images/projects/chp-co2-by-source.png" target="_blank" rel="noopener"><img src="./assets/images/projects/chp-co2-by-source.png" alt="Stacked bar chart of annual CO2 emissions by source for five configurations in Karlsruhe, Hamburg and Leipzig" width="880" height="480" loading="lazy"></a><figcaption>Annual CO&#8322; emissions by source and location.</figcaption></figure>
+            <figure><a href="./assets/images/projects/chp-grid-intensity.jpg" target="_blank" rel="noopener"><img src="./assets/images/projects/chp-grid-intensity.jpg" alt="Daily grid emission factors over 2024 for Hamburg (mean 68), Karlsruhe (177) and Leipzig (722 grams CO2 per kWh)" width="658" height="422" loading="lazy"></a><figcaption>Grid CO&#8322; intensity: Hamburg, Karlsruhe, Leipzig.</figcaption></figure>
+          </div>
+        </article>
+
+        <article class="case is-pub" id="sqd-monitoring-bausim-2026">
+          <div class="case-text">
+            <p class="case-kicker">Publication &middot; Technical paper (in German), BauSim 2026, Z&uuml;rich</p>
+            <h2>Hybrid Heat Pumps and CHP in Existing Multi-Family Buildings: Three Years of Monitoring Data</h2>
+            <p>Our second BauSim 2026 paper, with Michael Kropp and Andreas Velte-Sch&auml;fer, evaluates the real operation of the Smart District Durlach: five 1960s multi-family buildings (11,243 m&sup2;) supplied by two hybrid heat pumps (one using PVT collectors, one combining ground probes and outdoor air), two 50 kW gas CHP units, PV, a local 400 V grid and a district heating network. Over 700 monitoring points give the 2025 energy balance, compared with 2023 and 2024.</p>
+            <p>The district produced 83% of its own electricity and over 90% of the heat pumps&rsquo; winter power came from the CHP units. It was grid-supportive both when importing and exporting (GSC 0.64 and 1.28). The CO&#8322; result depends on how the grid is counted: up to 22% savings with Germany&rsquo;s average mix and export credits, but up to 5.7% more emissions on Baden-W&uuml;rttemberg&rsquo;s cleaner grid without credits, which is why we propose running the CHP according to grid CO&#8322; intensity.</p>
+            <p class="case-links"><a class="arrow-link" href="https://doi.org/10.21256/zhaw-2860" target="_blank" rel="noopener">Read in the proceedings (pp. 57&ndash;65) <span aria-hidden="true">&rarr;</span></a></p>
+          </div>
+          <div class="case-side">
+
+            <dl class="case-facts">
+              <div><dt>Authors</dt><dd>M. Kropp, S. Pathak, A. Velte-Sch&auml;fer</dd></div>
+              <div><dt>Published in</dt><dd>Proceedings of BauSim 2026, pp. 57&ndash;65, doi:10.21256/zhaw-2860</dd></div>
+              <div><dt>Data</dt><dd>700+ sensors, 1-minute resolution, 2023&ndash;2025</dd></div>
+              <div><dt>Original title</dt><dd>Analyse und Bewertung von hybriden W&auml;rmepumpensystemen in Kombination mit Kraft-W&auml;rme-Kopplung im Mehrfamilienhaus-Bestand anhand von Monitoringdaten</dd></div>
+            </dl>
+          </div>
+          <div class="case-figures">
+            <figure><a href="./assets/images/projects/sqd-energy-concept.png" target="_blank" rel="noopener"><img src="./assets/images/projects/sqd-energy-concept.png" alt="Aerial photo of the five buildings with PVT, PV, the two heat pumps, the CHP units, the local grid and the heating network marked" width="868" height="522" loading="lazy"></a><figcaption>Energy concept of the district (photo: Fraunhofer ISE).</figcaption></figure>
+            <figure><a href="./assets/images/projects/sqd-energy-flows-2025.png" target="_blank" rel="noopener"><img src="./assets/images/projects/sqd-energy-flows-2025.png" alt="Sankey diagram of the 2025 energy flows from gas, ambient heat, grid imports and PV to space heating, hot water, household electricity, losses and grid export, in kWh per square metre and year" width="1756" height="668" loading="lazy"></a><figcaption>Measured energy flows in 2025 (kWh/m&sup2;a).</figcaption></figure>
+            <figure><a href="./assets/images/projects/sqd-grid-interaction.png" target="_blank" rel="noopener"><img src="./assets/images/projects/sqd-grid-interaction.png" alt="Scatter plot of hourly electrical power of CHP, PV, households and heat pumps against the CO2 intensity of the Baden-W&uuml;rttemberg grid" width="812" height="788" loading="lazy"></a><figcaption>Hourly power flows vs. grid CO&#8322; intensity.</figcaption></figure>
+          </div>
+        </article>
+        <h2 class="group-head" id="projects">Research &amp; projects</h2>
         <article class="case" id="district-heating">
           <div class="case-text">
             <p class="case-kicker">Energy systems &middot; INATECH, University of Freiburg</p>
@@ -110,7 +158,7 @@
             <h2>Heat-Pump Emissions Under Variable Grid CO&#8322; Intensities: A Regional Study for Germany with PV and CHP</h2>
             <p>An academic research project completed as part of my M.Sc. programme at the University of Freiburg, alongside my work at INATECH. The study examines how the operational CO&#8322; emissions of heat pumps change as the carbon intensity of the electricity grid varies, both over time and between regions of Germany.</p>
             <p>The analysis includes the effects of photovoltaic (PV) generation and combined heat and power (CHP), which both shape grid carbon intensity at different times and places. It addresses a key question of the energy transition: under what grid conditions do heat pumps actually deliver emission savings over fossil alternatives, and how does that vary by region and season?</p>
-            <a class="arrow-link" href="index.html#research">Try the simplified calculator <span aria-hidden="true">&rarr;</span></a>
+            <p class="case-links"><a class="arrow-link" href="index.html#research">Try the simplified calculator <span aria-hidden="true">&rarr;</span></a></p>
           </div>
           <div class="case-side">
 
@@ -153,7 +201,7 @@
             <p class="case-kicker">Research &middot; M.Sc. term paper, University of Freiburg</p>
             <h2>Lead in Car Batteries: A Dynamic Material Flow Analysis of the Global Lead-Acid Battery Cycle</h2>
             <p>With Arun Bansal: a dynamic material flow model of the global lead-acid battery cycle from 2000 to 2025, with EV scenarios to 2040, built in Python and STAN. Published in full on my writing page.</p>
-            <a class="arrow-link" href="lead-acid-batteries.html">Read the article <span aria-hidden="true">&rarr;</span></a>
+            <p class="case-links"><a class="arrow-link" href="lead-acid-batteries.html">Read the article <span aria-hidden="true">&rarr;</span></a></p>
           </div>
           <div class="case-side">
 
@@ -196,7 +244,7 @@
             <h2>Earthquake-Resistant Building: Passive &amp; Active Thermal Retrofit Strategies</h2>
             <p>A case study of thermal retrofitting strategies for earthquake-resistant buildings in Nepal. It analyses passive and active retrofit approaches and their impact on building energy performance and thermal comfort.</p>
             <p>Passive strategies assessed include insulation improvements, window upgrades and air-tightening. Active strategies include mechanical heating and cooling systems. The study compares both approaches in the Nepali climate context.</p>
-            <a class="arrow-link" href="https://www.researchgate.net/project/Study-of-Earthquake-Resistant-Building-For-Passive-and-Active-Thermal-Retrofitting-Strategy-A-Case-Study" target="_blank" rel="noopener">View on ResearchGate <span aria-hidden="true">&rarr;</span></a>
+            <p class="case-links"><a class="arrow-link" href="https://www.researchgate.net/project/Study-of-Earthquake-Resistant-Building-For-Passive-and-Active-Thermal-Retrofitting-Strategy-A-Case-Study" target="_blank" rel="noopener">View on ResearchGate <span aria-hidden="true">&rarr;</span></a></p>
           </div>
           <div class="case-side">
             <figure class="case-figure"><img src="./assets/images/active-passive.png" alt="Plot of simulated indoor temperature for the retrofit study" loading="lazy"></figure>
@@ -211,7 +259,7 @@
             <h2>Design &amp; Analysis of a Low-Temperature Refrigeration System</h2>
             <p>Design, thermodynamic analysis and performance evaluation of a low-temperature refrigeration system: system sizing, vapour-compression cycle analysis, and selection of the compressor, condenser, expansion valve and evaporator.</p>
             <p>The analysis covers COP calculations, heat load assessment and refrigerant selection. Published on ResearchGate as part of my undergraduate research at Kathmandu University.</p>
-            <a class="arrow-link" href="https://www.researchgate.net/publication/365780080_DESIGN_AND_ANALYSIS_OF_LOW_TEMPERATURE_REFRIGERATION_SYSTEM" target="_blank" rel="noopener">View on ResearchGate <span aria-hidden="true">&rarr;</span></a>
+            <p class="case-links"><a class="arrow-link" href="https://www.researchgate.net/publication/365780080_DESIGN_AND_ANALYSIS_OF_LOW_TEMPERATURE_REFRIGERATION_SYSTEM" target="_blank" rel="noopener">View on ResearchGate <span aria-hidden="true">&rarr;</span></a></p>
           </div>
           <div class="case-side">
             <figure class="case-figure"><img src="./assets/images/low-temp.png" alt="Exploded CAD view of the insulated cold box" loading="lazy"></figure>

@@ -433,3 +433,34 @@
 }
 /* Charts sit on white in both themes */
 .article-figure img[src$=".png"] { background: #ffffff; }
+
+/* Publications on the writing index */
+.pubs { padding: 24px 0 40px; }
+.pubs h2 { font-size: var(--step-head); margin-bottom: 24px; }
+.pub-list li { padding: 24px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.pub-meta { font-size: var(--step-small); color: var(--muted); }
+.pub-title { margin-top: 6px; font-size: var(--step-lead); font-weight: 600; line-height: 1.35; max-width: 46em; }
+.pub-authors { margin-top: 10px; max-width: 52em; }
+.pub-links { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 16px; }
+.pub-list li + li { border-top: 0; }
+.pub-note { margin-top: 6px; font-size: var(--step-small); color: var(--muted); font-style: italic; }
+
+/* Publication with an image beside it */
+.pub-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+}
+.pub-figure img {
+  width: 100%;
+  aspect-ratio: 5 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  background: #ffffff;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+@media (max-width: 760px) {
+  .pub-item { grid-template-columns: 1fr; }
+  .pub-figure { order: -1; }
+}
