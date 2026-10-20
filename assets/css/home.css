@@ -380,3 +380,10 @@ textarea.form-input { min-height: 170px; resize: vertical; }
   padding: 20px 24px; border-radius: var(--radius); background: var(--surface);
   box-shadow: inset 3px 0 0 var(--accent);
 }
+
+.form-field .optional { opacity: 0.75; }
+.form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 8px; }
+.form-actions .form-btn { margin-top: 0; }
+.form-hint { font-size: var(--step-small); color: var(--on-navy-muted); }
+.form-status-msg.success a { color: inherit; text-decoration: underline; }
+@media (max-width: 640px) { .form-actions .form-btn { width: 100%; } }

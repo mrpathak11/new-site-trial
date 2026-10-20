@@ -115,12 +115,14 @@ window.copyEmailToClipboard = function (email) {
 };
 
 // ============================
-// CONTACT FORM: enable when valid, send to Formspree without leaving the page
+// CONTACT FORM: opens the visitor's own email app with the message filled in.
+// No third-party service; the email goes straight from them to me.
 // ============================
 (function initContactForm() {
   const form = document.querySelector('[data-form]');
   if (!form) return;
 
+  const to = form.dataset.to;
   const inputs = form.querySelectorAll('[data-form-input]');
   const submitBtn = form.querySelector('[data-form-btn]');
   const statusBox = document.createElement('div');
@@ -136,32 +138,14 @@ window.copyEmailToClipboard = function (email) {
     e.preventDefault();
     if (!form.checkValidity()) return;
 
-    const originalHTML = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<span>Sending…</span>';
-    statusBox.className = 'form-status-msg';
+    const name = form.fullname.value.trim();
+    const subject = form.subject.value.trim() || `Message from ${name} via sumanpathak.com.np`;
+    const body = `${form.message.value.trim()}
 
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { Accept: 'application/json' },
-    })
-      .then(response => {
-        if (response.ok) {
-          statusBox.className = 'form-status-msg success';
-          statusBox.innerHTML = '<strong>Message sent.</strong> Thank you for writing; I will reply soon.';
-          form.reset();
-          return;
-        }
-        throw new Error('Form submission failed');
-      })
-      .catch(() => {
-        statusBox.className = 'form-status-msg error';
-        statusBox.innerHTML = '<strong>That did not send.</strong> Please try again, or email me directly at <a href="mailto:sumanpathak.sp143@gmail.com">sumanpathak.sp143@gmail.com</a>.';
-      })
-      .finally(() => {
-        submitBtn.innerHTML = originalHTML;
-        submitBtn.disabled = !form.checkValidity();
-      });
+— ${name}`;
+    window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    statusBox.className = 'form-status-msg success';
+    statusBox.innerHTML = `<strong>Your email app should open now</strong> with the message filled in; press send there. If nothing opened, email me directly at <a href="mailto:${to}">${to}</a>.`;
   });
 })();

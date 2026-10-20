@@ -361,22 +361,25 @@
           </dl>
         </div>
 
-        <form action="https://formspree.io/f/xyylbzly" method="POST" class="contact-form" data-form novalidate data-enter>
+        <form class="contact-form" data-form data-to="sumanpathak.sp143@gmail.com" novalidate data-enter>
           <div class="form-row">
             <div class="form-field">
               <label for="fullname">Name</label>
               <input type="text" id="fullname" name="fullname" class="form-input" required data-form-input autocomplete="name">
             </div>
             <div class="form-field">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="_replyto" class="form-input" required data-form-input autocomplete="email" spellcheck="false">
+              <label for="subject">Subject <span class="optional">(optional)</span></label>
+              <input type="text" id="subject" name="subject" class="form-input" data-form-input autocomplete="off">
             </div>
           </div>
           <div class="form-field">
             <label for="message">Message</label>
             <textarea id="message" name="message" class="form-input" required data-form-input></textarea>
           </div>
-          <button class="btn form-btn" type="submit" data-form-btn disabled><span>Send message</span></button>
+          <div class="form-actions">
+            <button class="btn form-btn" type="submit" data-form-btn disabled><span>Write the email</span></button>
+            <p class="form-hint">Opens your email app with this message ready to send.</p>
+          </div>
         </form>
       </div>
     </section>
